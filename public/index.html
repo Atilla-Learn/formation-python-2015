@@ -121,11 +121,11 @@ asso_liste[3:7]  # Du 4ème au 7ème !
 
 				<section>
 					<h5>Une belle fonction récursive</h5>
-					<span>Tu sens arrivé la programation dynamique?</span>
+					<span>Tu sens arriver la programation dynamique?</span>
 					<pre>
 						<code class="python">
 def fib(n):
-    """Suite de fibonacci, super rapide !"""
+    """Suite de fibonacci, mais c'est super lent ! :("""
     if n <= 1:
         return 1
     else:
@@ -142,7 +142,7 @@ import functools
 
 @functools.lru_cache(maxsize=None)
 def fib(n):
-    """Suite de fibonacci, mais c'est super lent ! :("""
+    """Suite de fibonacci, super rapide !"""
     if n <= 1:
         return 1
     else:
@@ -152,7 +152,7 @@ def fib(n):
 				</section>
 
 				<section>
-					<h5>Vous n'avez jamais autant aimer chercher dans un dictionaire !</h5>
+					<h5>Vous n'avez jamais autant aimé chercher dans un dictionaire !</h5>
 					<pre>
 						<code class="python">
 # TODO
