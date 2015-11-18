@@ -158,11 +158,38 @@ def fib(n):
 				</section>
 
 				<section>
-					<h5>Ajoutez un cache à vos fonctions !</h5>
+					<h5>Utilisons un décorateur !</h5>
 					<span>
 						Un décorateur est une fonction qui prend en paramètre une fonction
 						et qui renvoie une fonction
 					</span>
+					<pre>
+						<code class="python" style="max-height: None;">
+def decorateur(fonction):
+    # *args et **kwargs servent à définir un nombre indéterminé
+		# de paramètre positionnels et paramètre nommé
+		# f(arg_pos1, arg_pos2, kwarg1="lol", kwargs2=True)
+    def autre_fonction(*args, **kwargs):
+        print(args, kwargs)
+        return fonction(*args, **kwargs)
+    return autre_fonction
+
+@decorateur
+def add(x, y):
+    return x + y
+
+# Sucre syntaxique pour
+def add(x, y):
+    return x + y
+add = decorateur(add)
+
+>>> add(2, 3)  # Affiche (2, 3) {} et retourne 5
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h5>Ajoutez un cache à vos fonctions !</h5>
 					<pre>
 						<code class="python">
 import functools
@@ -198,7 +225,7 @@ print(dico.get("autre clé") is None)  # True
 				<section>
 					<h5>Vous n'avez jamais autant aimé chercher dans un dictionaire ! (2)</h5>
 					<ul>
-						<li>Très utile pour représentez une liste d'adjacence (graphe)</li>
+						<li>Très utile pour représenter une liste d'adjacence (graphe)</li>
 						<li>Ou tout simplement pour associer des valeurs à des objets</li>
 					</ul>
 					<pre>
@@ -220,6 +247,11 @@ d = {genre: personnes.count(genre) for genre in set(personnes)}
 						</code>
 					</pre>
 				</section>
+
+				<section>
+					<h5>On dirait pas comme ça mais vous avez rencontré vos deux meilleurs amis !</h5>
+					<p>Je parle de la liste et du dictionnaire si vous ne suivez pas</p>
+				</section>
 			</section>
 
 			<section>
@@ -230,6 +262,7 @@ d = {genre: personnes.count(genre) for genre in set(personnes)}
 				<section>
 					<h5>Notions avancés !</h5>
 					<ul>
+						<li class="fragment">Générateur</li>
 						<li class="fragment">Co-routine</li>
 						<li class="fragment">asyncio (Python 3.5)</li>
 						<li class="fragment">Meta classe</li>
