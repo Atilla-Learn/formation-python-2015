@@ -97,7 +97,7 @@ form.login input[type=submit] {
 }
 
 ul {
-    list-style-type: none !important;
+    list-style-type: disc !important;
 }
 
 .logo-atilla {
