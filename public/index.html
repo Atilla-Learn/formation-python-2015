@@ -58,7 +58,7 @@
 					<p>
 						<h5>Langage de programmation interprété multi-paradigme</h5>
 						<ul>
-						  <li class="fragment">Structuré</li>
+						  <li class="fragment">Impératif</li>
 							<li class="fragment">Fontionnel</li>
 						  <li class="fragment">Orienté objet</li>
 						</ul>
@@ -96,10 +96,10 @@
 							<code class="python">
 import os
 import sys
-import shutil
-import subprocess
-import glob
-from math import cos,sqrt
+import random
+import itertools
+import functools
+from math import cos, sqrt
 							</code>
 						</pre>
 					</p>
@@ -110,14 +110,12 @@ from math import cos,sqrt
 						<h5>Un langage où tout est déjà programmé</h5>
 					</p>
 					<p class="fragment">
-						76000 modules dans des domaines trés variés disponible sur PyPI
+						Si vous cherchez un module, il existe sans dout déjà parmis les 76000 sur PyPI
 						<pre class="fragment">
 							<code class="UNIX">
-python get-pip.py
-pip install -U pip
-pip install SomePackage
-python3.4 -m pip install SomePackage
-
+sudo apt-get install python-pip
+pip install PackageName
+python3.4 -m pip install PackageName
 pip install Django 1.8.5
 pip install PdfEditor 0.0.3
 							</code>
@@ -136,6 +134,7 @@ pip install PdfEditor 0.0.3
 				<section>
 					<p>
 						<h5>Et pour ceux qui ont peur de tout casser</h5>
+						Ou ceux qui veulent pouvoir gérer les versions différentees entre projet
 					</p>
 					<p class="fragment">
 						Virtualenv est votre ami
@@ -168,6 +167,9 @@ source ENV/bin/activate # Pour le lancer
 						Python 3 est restructuré et en UTF-8 par défaut
 					</p>
 					<p class="fragment">
+						Mais du coup il n'est pas rétrocompatible
+					</p>
+					<p class="fragment">
 						Quelques incohérences rectifiées (return())
 					</p>
 					<p class="fragment">
@@ -191,10 +193,10 @@ source ENV/bin/activate # Pour le lancer
 						<pre>
 							<code class="python">
 def factorielle(x):
-    if x<2:
+    if x < 2:
         return 1
     else:
-        return(x*factorielle(x-1))
+        return( x * factorielle( x - 1 ) )
 							</code>
 						</pre>
 					</p>
@@ -203,7 +205,7 @@ def factorielle(x):
 				<section>
 
 					<p>
-						<h5>PEP (Python Extension Proposal)</h5>
+						<h5>PEP8 (Python Extension Proposal)</h5>
 					</p>
 					<p class="fragment">
 					</p>
@@ -230,9 +232,6 @@ def factorielle(x):
 					Creation de sites web (Django, Flask, Pyramid)
 				</p>
 				<p class="fragment">
-					Creation de serveur application (Tornado)
-				</p>
-				<p class="fragment">
 					Et bien d'autres choses...
 				</p>
 				</section>
@@ -252,7 +251,7 @@ def factorielle(x):
 					Facile à débugger
 				</p>
 				<p class="fragment">
-					Possible de le traceback
+					Notamment à l'aide de traceback
 				</p>
 				</section>
 			</section>
