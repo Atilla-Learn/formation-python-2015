@@ -40,6 +40,10 @@
 				<h1>Atilla</h1>
 				<h3>Formation Python</h3>
 				<footer>
+					<div style="height: 100%; width: 100%; overflow: hidden;">
+						<img class="circular" src="assets/img/martin.jpg" style="float: left;"></img>
+						<img class="circular" src="assets/img/clement.jpg" style="float: right;"></img>
+					</div>
 					<small>Martin Pozuelo, Clément Villain</small><br>
 					<small>Jeudi 19 novembre 2015</small>
 				</footer>
@@ -78,13 +82,32 @@
 					<h1>Python, le coup de foudre</h1>
 				</section>
 
-				<section> <!-- TODO: Ajouter/supprimer/chercher un element -->
-					<h5>Manipuler une liste n'a jamais été aussi facile !</h5>
+				<section>
+					<h5>Manipuler une liste n'a jamais été aussi facile ! (1)</h5>
 					<pre>
 						<code class="python">
 asso_liste = ["Atilla", "BDE Stay High", "EISTI Poker"]
 
-if "Contr'Eisi" not in asso_liste:
+asso_liste.append("Cap'EISTI")  # Ajoute à la fin de la liste
+asso_liste.remove("Atilla")  # Retire l'élément "Atilla"
+dernier = asso_liste.pop()  # Retire et renvoie le dernier
+
+if "BDE Stay High" in asso_liste:
+    indice = asso_liste.index("Atilla")  # indice = 0
+
+for asso in asso_liste:
+    print(asso)
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h5>Manipuler une liste n'a jamais été aussi facile ! (2)</h5>
+					<pre>
+						<code class="python">
+asso_liste = ["Atilla", "BDE Stay High", "EISTI Poker"]
+
+if "Contr'Eisti" not in asso_liste:
     print("Il manque des associations !")
 
 # Liste en compréhension
@@ -101,7 +124,7 @@ for indice, asso in enumerate(reversed(asso_liste)):
 				</section>
 
 				<section>
-					<h5>Manipuler une liste n'a jamais été aussi facile ! (2)</h5>
+					<h5>Manipuler une liste n'a jamais été aussi facile ! (3)</h5>
 					<pre>
 						<code class="python">
 somme = sum(x ** 2 for x in range(1000))
@@ -121,7 +144,7 @@ asso_liste[3:7]  # Du 4ème au 7ème !
 
 				<section>
 					<h5>Une belle fonction récursive</h5>
-					<span>Tu sens arriver la programation dynamique?</span>
+					<span>Tu sens arriver la mémoïsation?</span>
 					<pre>
 						<code class="python">
 def fib(n):
@@ -130,6 +153,37 @@ def fib(n):
         return 1
     else:
         return fib(n - 1) + fib(n - 2)
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h5>Utilisons un décorateur !</h5>
+					<span>
+						Un décorateur est une fonction qui prend en paramètre une fonction
+						et qui renvoie une fonction
+					</span>
+					<pre>
+						<code class="python" style="max-height: None;">
+def decorateur(fonction):
+    # *args et **kwargs servent à définir un nombre indéterminé
+		# de paramètre positionnels et paramètre nommé
+		# f(arg_pos1, arg_pos2, kwarg1="lol", kwargs2=True)
+    def autre_fonction(*args, **kwargs):
+        print(args, kwargs)
+        return fonction(*args, **kwargs)
+    return autre_fonction
+
+@decorateur
+def add(x, y):
+    return x + y
+
+# Sucre syntaxique pour
+def add(x, y):
+    return x + y
+add = decorateur(add)
+
+>>> add(2, 3)  # Affiche (2, 3) {} et retourne 5
 						</code>
 					</pre>
 				</section>
@@ -153,11 +207,50 @@ def fib(n):
 
 				<section>
 					<h5>Vous n'avez jamais autant aimé chercher dans un dictionaire !</h5>
+					<span>Un dictionnaire, c'est comme un tableau sauf qu'au lieu des indices on a une clé !</span>
 					<pre>
 						<code class="python">
-# TODO
+dico = {}  # Dictionnaire vide
+
+dico["ma clé"] = 42
+print(dico["ma clé"])  # 42
+print("ma clé" in dico)  # True
+
+print(dico["autre clé"])  # Une exception est levée
+print(dico.get("autre clé") is None)  # True
 						</code>
 					</pre>
+				</section>
+
+				<section>
+					<h5>Vous n'avez jamais autant aimé chercher dans un dictionaire ! (2)</h5>
+					<ul>
+						<li>Très utile pour représenter une liste d'adjacence (graphe)</li>
+						<li>Ou tout simplement pour associer des valeurs à des objets</li>
+					</ul>
+					<pre>
+						<code class="python">
+personnes = ["H", "F", "H", "F", "F"]
+d = {}
+for personne in personnes:
+    if personne not in d:
+        d[personne] = 1
+    else:
+        d[personne] += 1
+
+>>> d
+{'H': 2, 'F': 3}
+
+>>> set(personnes)  # {'H', 'F'}
+# Cette ligne marche peu importe le nombre de genres et leur type !
+d = {genre: personnes.count(genre) for genre in set(personnes)}
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h5>On dirait pas comme ça mais vous avez rencontré vos deux meilleurs amis !</h5>
+					<p>Je parle de la liste et du dictionnaire si vous ne suivez pas</p>
 				</section>
 			</section>
 
@@ -165,6 +258,26 @@ def fib(n):
 				<section>
 					<h1>Aller plus loin...</h1>
 				</section>
+
+				<section>
+					<h5>Notions avancés !</h5>
+					<ul>
+						<li class="fragment">Générateur</li>
+						<li class="fragment">Co-routine</li>
+						<li class="fragment">asyncio (Python 3.5)</li>
+						<li class="fragment">Meta classe</li>
+						<li class="fragment">Binding C</li>
+						<li class="fragment">Fonctionnement interne des structures de données</li>
+					</ul>
+				</section>
+
+				<section>
+					<h5>Une belle pile d'éxécution</h5>
+					<p>
+						<a href="assets/html/django_trace.htm">Ici</a>
+					</p>
+				</section>
+			</section>
 
 				<section>
 					<h5>Dijkstra en quelques lignes?</h5>
@@ -190,15 +303,6 @@ def dijkstra(graph, begin):
 						</code>
 					</pre>
 				</section>
-
-		    <section>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac ex
-						non ligula euismod pharetra at sed elit. Nullam eget varius leo.
-						Integer sit amet suscipit ex. Donec ultrices molestie.
-					</p>
-				</section>
-			</section>
 
 			<section>
 				<section>

@@ -1,0 +1,2712 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <title>IndexError at /api/bulats/training</title>
+  <style type="text/css">
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font:small sans-serif; }
+    body>div { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; }
+    h2 { margin-bottom:.8em; }
+    h2 span { font-size:80%; color:#666; font-weight:normal; }
+    h3 { margin:1em 0 .5em 0; }
+    h4 { margin:0 0 .5em 0; font-weight: normal; }
+    code, pre { font-size: 100%; white-space: pre-wrap; }
+    table { border:1px solid #ccc; border-collapse: collapse; width:100%; background:white; }
+    tbody td, tbody th { vertical-align:top; padding:2px 3px; }
+    thead th {
+      padding:1px 6px 1px 3px; background:#fefefe; text-align:left;
+      font-weight:normal; font-size:11px; border:1px solid #ddd;
+    }
+    tbody th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    table.vars { margin:5px 0 2px 40px; }
+    table.vars td, table.req td { font-family:monospace; }
+    table td.code { width:100%; }
+    table td.code pre { overflow:hidden; }
+    table.source th { color:#666; }
+    table.source td { font-family:monospace; white-space:pre; border-bottom:1px solid #eee; }
+    ul.traceback { list-style-type:none; color: #222; }
+    ul.traceback li.frame { padding-bottom:1em; color:#666; }
+    ul.traceback li.user { background-color:#e0e0e0; color:#000 }
+    div.context { padding:10px 0; overflow:hidden; }
+    div.context ol { padding-left:30px; margin:0 10px; list-style-position: inside; }
+    div.context ol li { font-family:monospace; white-space:pre; color:#777; cursor:pointer; }
+    div.context ol li pre { display:inline; }
+    div.context ol.context-line li { color:#505050; background-color:#dfdfdf; }
+    div.context ol.context-line li span { position:absolute; right:32px; }
+    .user div.context ol.context-line li { background-color:#bbb; color:#000; }
+    .user div.context ol li { color:#666; }
+    div.commands { margin-left: 40px; }
+    div.commands a { color:#555; text-decoration:none; }
+    .user div.commands a { color: black; }
+    #summary { background: #ffc; }
+    #summary h2 { font-weight: normal; color: #666; }
+    #explanation { background:#eee; }
+    #template, #template-not-exist { background:#f6f6f6; }
+    #template-not-exist ul { margin: 0 0 0 20px; }
+    #unicode-hint { background:#eee; }
+    #traceback { background:#eee; }
+    #requestinfo { background:#f6f6f6; padding-left:120px; }
+    #summary table { border:none; background:transparent; }
+    #requestinfo h2, #requestinfo h3 { position:relative; margin-left:-100px; }
+    #requestinfo h3 { margin-bottom:-1em; }
+    .error { background: #ffc; }
+    .specific { color:#cc3300; font-weight:bold; }
+    h2 span.commands { font-size:.7em;}
+    span.commands a:link {color:#5E5694;}
+    pre.exception_value { font-family: sans-serif; color: #666; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+  
+  <script type="text/javascript">
+  //<!--
+    function getElementsByClassName(oElm, strTagName, strClassName){
+        // Written by Jonathan Snook, http://www.snook.ca/jon; Add-ons by Robert Nyman, http://www.robertnyman.com
+        var arrElements = (strTagName == "*" && document.all)? document.all :
+        oElm.getElementsByTagName(strTagName);
+        var arrReturnElements = new Array();
+        strClassName = strClassName.replace(/\-/g, "\-");
+        var oRegExp = new RegExp("(^|\s)" + strClassName + "(\s|$)");
+        var oElement;
+        for(var i=0; i<arrElements.length; i++){
+            oElement = arrElements[i];
+            if(oRegExp.test(oElement.className)){
+                arrReturnElements.push(oElement);
+            }
+        }
+        return (arrReturnElements)
+    }
+    function hideAll(elems) {
+      for (var e = 0; e < elems.length; e++) {
+        elems[e].style.display = 'none';
+      }
+    }
+    window.onload = function() {
+      hideAll(getElementsByClassName(document, 'table', 'vars'));
+      hideAll(getElementsByClassName(document, 'ol', 'pre-context'));
+      hideAll(getElementsByClassName(document, 'ol', 'post-context'));
+      hideAll(getElementsByClassName(document, 'div', 'pastebin'));
+    }
+    function toggle() {
+      for (var i = 0; i < arguments.length; i++) {
+        var e = document.getElementById(arguments[i]);
+        if (e) {
+          e.style.display = e.style.display == 'none' ? 'block': 'none';
+        }
+      }
+      return false;
+    }
+    function varToggle(link, id) {
+      toggle('v' + id);
+      var s = link.getElementsByTagName('span')[0];
+      var uarr = String.fromCharCode(0x25b6);
+      var darr = String.fromCharCode(0x25bc);
+      s.innerHTML = s.innerHTML == uarr ? darr : uarr;
+      return false;
+    }
+    function switchPastebinFriendly(link) {
+      s1 = "Switch to copy-and-paste view";
+      s2 = "Switch back to interactive view";
+      link.innerHTML = link.innerHTML == s1 ? s2: s1;
+      toggle('browserTraceback', 'pastebinTraceback');
+      return false;
+    }
+    //-->
+  </script>
+  
+</head>
+<body>
+<div id="summary">
+  <h1>IndexError at /api/bulats/training</h1>
+  <pre class="exception_value">Cannot choose from an empty sequence</pre>
+  <table class="meta">
+
+    <tbody><tr>
+      <th>Request Method:</th>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <th>Request URL:</th>
+      <td>http://127.0.0.1:8000/api/bulats/training?lesson=13</td>
+    </tr>
+
+    <tr>
+      <th>Django Version:</th>
+      <td>1.8.2</td>
+    </tr>
+
+    <tr>
+      <th>Exception Type:</th>
+      <td>IndexError</td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Value:</th>
+      <td><pre>Cannot choose from an empty sequence</pre></td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Location:</th>
+      <td>/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/random.py in choice, line 255</td>
+    </tr>
+
+    <tr>
+      <th>Python Executable:</th>
+      <td>/home/choclate/documents/projects/web/platform_toeic/env/bin/python</td>
+    </tr>
+    <tr>
+      <th>Python Version:</th>
+      <td>3.4.3</td>
+    </tr>
+    <tr>
+      <th>Python Path:</th>
+      <td><pre>['/home/choclate/documents/projects/web/platform_toeic',
+ '/home/choclate/documents/projects/web/platform_toeic/env/src/django-mailgun-master',
+ '/home/choclate/documents/projects/web/platform_toeic/env/lib/python34.zip',
+ '/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4',
+ '/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/plat-linux',
+ '/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/lib-dynload',
+ '/usr/lib64/python3.4',
+ '/usr/lib/python3.4',
+ '/usr/lib/python3.4/plat-linux',
+ '/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/site-packages',
+ '/home/choclate/documents/projects/web/platform_toeic']</pre></td>
+    </tr>
+    <tr>
+      <th>Server time:</th>
+      <td>Wed, 18 Nov 2015 18:44:37 +0100</td>
+    </tr>
+  </tbody></table>
+</div>
+
+
+
+
+<div id="traceback">
+  <h2>Traceback <span class="commands"><a href="#" onclick="return switchPastebinFriendly(this);">
+    Switch to copy-and-paste view</a></span>
+  </h2>
+  
+  <div id="browserTraceback">
+    <ul class="traceback">
+      
+        <li class="frame django">
+          <code>/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/site-packages/django/core/handlers/base.py</code> in <code>get_response</code>
+
+          
+            <div class="context" id="c140583687787912">
+              
+                <ol style="display: block;" start="125" class="pre-context" id="pre140583687787912">
+                
+                  <li onclick="toggle('pre140583687787912', 'post140583687787912')"><pre>                    response = middleware_method(request, callback, callback_args, callback_kwargs)</pre></li>
+                
+                  <li onclick="toggle('pre140583687787912', 'post140583687787912')"><pre>                    if response:</pre></li>
+                
+                  <li onclick="toggle('pre140583687787912', 'post140583687787912')"><pre>                        break</pre></li>
+                
+                  <li onclick="toggle('pre140583687787912', 'post140583687787912')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140583687787912', 'post140583687787912')"><pre>            if response is None:</pre></li>
+                
+                  <li onclick="toggle('pre140583687787912', 'post140583687787912')"><pre>                wrapped_callback = self.make_view_atomic(callback)</pre></li>
+                
+                  <li onclick="toggle('pre140583687787912', 'post140583687787912')"><pre>                try:</pre></li>
+                
+                </ol>
+              
+              <ol start="132" class="context-line">
+                <li onclick="toggle('pre140583687787912', 'post140583687787912')"><pre>                                response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre> <span>...</span></li></ol>
+              
+                <ol style="display: block;" start="133" class="post-context" id="post140583687787912">
+                  
+                  <li onclick="toggle('pre140583687787912', 'post140583687787912')"><pre>                except Exception as e:</pre></li>
+                  
+                  <li onclick="toggle('pre140583687787912', 'post140583687787912')"><pre>                    # If the view raised an exception, run it through exception</pre></li>
+                  
+                  <li onclick="toggle('pre140583687787912', 'post140583687787912')"><pre>                    # middleware, and if the exception middleware returns a</pre></li>
+                  
+                  <li onclick="toggle('pre140583687787912', 'post140583687787912')"><pre>                    # response, use that. Otherwise, reraise the exception.</pre></li>
+                  
+                  <li onclick="toggle('pre140583687787912', 'post140583687787912')"><pre>                    for middleware_method in self._exception_middleware:</pre></li>
+                  
+                  <li onclick="toggle('pre140583687787912', 'post140583687787912')"><pre>                        response = middleware_method(request, e)</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140583687787912')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table style="display: none;" class="vars" id="v140583687787912">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>callback_kwargs</td>
+                    <td class="code"><pre>{'type': 'bulats'}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>response</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>middleware_method</td>
+                    <td class="code"><pre>&lt;bound method CorsMiddleware.process_view of &lt;corsheaders.middleware.CorsMiddleware object at 0x7fdc31c8d080&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>wrapped_callback</td>
+                    <td class="code"><pre>&lt;function Training at 0x7fdc30ce7bf8&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback</td>
+                    <td class="code"><pre>&lt;function Training at 0x7fdc30ce7bf8&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x7fdc36a1ba20&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resolver_match</td>
+                    <td class="code"><pre>ResolverMatch(func=exam.views.Training, args=(), kwargs={'type': 'bulats'}, url_name=None, app_name=None, namespaces=[])</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>urlconf</td>
+                    <td class="code"><pre>'platform_toeic.urls'</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>('&lt;WSGIRequest\n'
+ 'path:/api/bulats/training,\n'
+ "GET:&lt;QueryDict: {'lesson': ['13']}&gt;,\n"
+ 'POST:&lt;QueryDict: {}&gt;,\n'
+ "COOKIES:{'last_request': '2015-11-18 17:44:35.846064+00:00', 'user_id': "
+ "'13'},\n"
+ "META:{'ANDROID_HOME': '/opt/android-sdk',\n"
+ " 'ANDROID_SWT': '/usr/share/java',\n"
+ " 'ANT_HOME': '/usr/share/apache-ant',\n"
+ " 'BROWSER': '/usr/bin/xdg-open',\n"
+ " 'CELERY_LOADER': 'djcelery.loaders.DjangoLoader',\n"
+ " 'COLORTERM': 'gnome-terminal',\n"
+ " 'CONTENT_LENGTH': '',\n"
+ " 'CONTENT_TYPE': 'text/plain',\n"
+ " 'DBUS_SESSION_BUS_ADDRESS': "
+ "'unix:abstract=/tmp/dbus-JhG6SyhFDY,guid=731a9357e637213d4a6ee464564c7582',\n"
+ " 'DESKTOP_SESSION': 'xfce',\n"
+ " 'DISPLAY': ':0.0',\n"
+ " 'DJANGO_SETTINGS_MODULE': 'platform_toeic.settings',\n"
+ " 'GATEWAY_INTERFACE': 'CGI/1.1',\n"
+ " 'GDMSESSION': 'xfce',\n"
+ " 'GTK2_RC_FILES': '/home/choclate/.gtkrc-2.0',\n"
+ " 'GTK_MODULES': 'canberra-gtk-module',\n"
+ " 'HG': '/usr/bin/hg',\n"
+ " 'HOME': '/home/choclate',\n"
+ " 'HTTP_ACCEPT': 'application/json, text/plain, */*',\n"
+ " 'HTTP_ACCEPT_ENCODING': 'gzip, deflate',\n"
+ " 'HTTP_ACCEPT_LANGUAGE': 'en-US,en;q=0.5',\n"
+ " 'HTTP_AUTHORIZATION': 'Token cbeddc3eaa1c5076e6846283ee2d1a76755bd303',\n"
+ " 'HTTP_CONNECTION': 'keep-alive',\n"
+ ' \'HTTP_COOKIE\': \'user_id=13; last_request="2015-11-18 '
+ '17:44:35.846064+00:00"\',\n'
+ " 'HTTP_HOST': '127.0.0.1:8000',\n"
+ " 'HTTP_ORIGIN': 'http://127.0.0.1:9000',\n"
+ " 'HTTP_REFERER': 'http://127.0.0.1:9000/training/on?lesson=13',\n"
+ " 'HTTP_USER_AGENT': 'Mozilla/5.0 (X11; Linux x86_64; rv:42.0) "
+ "Gecko/20100101 '\n"
+ "                    'Firefox/42.0',\n"
+ " 'IBUS_DISABLE_SNOOPER': '1',\n"
+ " 'LANG': 'en_US.utf8',\n"
+ " 'LOGNAME': 'choclate',\n"
+ " 'LS_COLORS': "
+ "'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.pdf=00;32:*.ps=00;32:*.txt=00;32:*.patch=00;32:*.diff=00;32:*.log=00;32:*.tex=00;32:*.doc=00;32:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:',\n"
+ " 'MAIL': '/var/spool/mail/choclate',\n"
+ " 'MOZ_PLUGIN_PATH': '/usr/lib/mozilla/plugins',\n"
+ " 'OLDPWD': '/home/choclate/documents/projects/web',\n"
+ " 'PATH': "
+ "'/home/choclate/documents/projects/web/platform_toeic/env/bin:/usr/lib/hardening-wrapper/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/choclate/.gem/ruby/2.2.0/bin:/home/choclate/.gem/ruby/2.2.0/bin',\n"
+ " 'PATH_INFO': '/api/bulats/training',\n"
+ " 'PS1': '(env)\\\\[\\\\033[01;32m\\\\][\\\\u@\\\\h\\\\[\\\\033[01;37m\\\\] "
+ "'\n"
+ "        '\\\\W\\\\[\\\\033[01;32m\\\\]]\\\\$\\\\[\\\\033[00m\\\\] ',\n"
+ " 'PWD': '/home/choclate/documents/projects/web/platform_toeic',\n"
+ " 'QT_STYLE_OVERRIDE': 'g... &lt;trimmed 6048 bytes string&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resolver</td>
+                    <td class="code"><pre>&lt;RegexURLResolver 'platform_toeic.urls' (None:None) ^/&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame django">
+          <code>/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/site-packages/django/views/decorators/csrf.py</code> in <code>wrapped_view</code>
+
+          
+            <div class="context" id="c140583687787400">
+              
+                <ol style="display: none;" start="51" class="pre-context" id="pre140583687787400">
+                
+                  <li onclick="toggle('pre140583687787400', 'post140583687787400')"><pre>    """</pre></li>
+                
+                  <li onclick="toggle('pre140583687787400', 'post140583687787400')"><pre>    Marks a view function as being exempt from the CSRF view protection.</pre></li>
+                
+                  <li onclick="toggle('pre140583687787400', 'post140583687787400')"><pre>    """</pre></li>
+                
+                  <li onclick="toggle('pre140583687787400', 'post140583687787400')"><pre>    # We could just do view_func.csrf_exempt = True, but decorators</pre></li>
+                
+                  <li onclick="toggle('pre140583687787400', 'post140583687787400')"><pre>    # are nicer if they don't have side-effects, so we return a new</pre></li>
+                
+                  <li onclick="toggle('pre140583687787400', 'post140583687787400')"><pre>    # function.</pre></li>
+                
+                  <li onclick="toggle('pre140583687787400', 'post140583687787400')"><pre>    def wrapped_view(*args, **kwargs):</pre></li>
+                
+                </ol>
+              
+              <ol start="58" class="context-line">
+                <li onclick="toggle('pre140583687787400', 'post140583687787400')"><pre>                    return view_func(*args, **kwargs)</pre> <span>...</span></li></ol>
+              
+                <ol style="display: none;" start="59" class="post-context" id="post140583687787400">
+                  
+                  <li onclick="toggle('pre140583687787400', 'post140583687787400')"><pre>    wrapped_view.csrf_exempt = True</pre></li>
+                  
+                  <li onclick="toggle('pre140583687787400', 'post140583687787400')"><pre>    return wraps(view_func, assigned=available_attrs(view_func))(wrapped_view)</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140583687787400')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table style="display: none;" class="vars" id="v140583687787400">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>view_func</td>
+                    <td class="code"><pre>&lt;function Training at 0x7fdc30ce7b70&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{'type': 'bulats'}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>(&lt;WSGIRequest: GET '/api/bulats/training?lesson=13'&gt;,)</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame django">
+          <code>/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/site-packages/django/views/generic/base.py</code> in <code>view</code>
+
+          
+            <div class="context" id="c140583687789320">
+              
+                <ol style="display: none;" start="64" class="pre-context" id="pre140583687789320">
+                
+                  <li onclick="toggle('pre140583687789320', 'post140583687789320')"><pre>        def view(request, *args, **kwargs):</pre></li>
+                
+                  <li onclick="toggle('pre140583687789320', 'post140583687789320')"><pre>            self = cls(**initkwargs)</pre></li>
+                
+                  <li onclick="toggle('pre140583687789320', 'post140583687789320')"><pre>            if hasattr(self, 'get') and not hasattr(self, 'head'):</pre></li>
+                
+                  <li onclick="toggle('pre140583687789320', 'post140583687789320')"><pre>                self.head = self.get</pre></li>
+                
+                  <li onclick="toggle('pre140583687789320', 'post140583687789320')"><pre>            self.request = request</pre></li>
+                
+                  <li onclick="toggle('pre140583687789320', 'post140583687789320')"><pre>            self.args = args</pre></li>
+                
+                  <li onclick="toggle('pre140583687789320', 'post140583687789320')"><pre>            self.kwargs = kwargs</pre></li>
+                
+                </ol>
+              
+              <ol start="71" class="context-line">
+                <li onclick="toggle('pre140583687789320', 'post140583687789320')"><pre>                        return self.dispatch(request, *args, **kwargs)</pre> <span>...</span></li></ol>
+              
+                <ol style="display: none;" start="72" class="post-context" id="post140583687789320">
+                  
+                  <li onclick="toggle('pre140583687789320', 'post140583687789320')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140583687789320', 'post140583687789320')"><pre>        # take name and docstring from class</pre></li>
+                  
+                  <li onclick="toggle('pre140583687789320', 'post140583687789320')"><pre>        update_wrapper(view, cls, updated=())</pre></li>
+                  
+                  <li onclick="toggle('pre140583687789320', 'post140583687789320')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140583687789320', 'post140583687789320')"><pre>        # and possible attributes set by decorators</pre></li>
+                  
+                  <li onclick="toggle('pre140583687789320', 'post140583687789320')"><pre>        # like csrf_exempt from dispatch</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140583687789320')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table style="display: none;" class="vars" id="v140583687789320">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>('&lt;WSGIRequest\n'
+ 'path:/api/bulats/training,\n'
+ "GET:&lt;QueryDict: {'lesson': ['13']}&gt;,\n"
+ 'POST:&lt;QueryDict: {}&gt;,\n'
+ "COOKIES:{'last_request': '2015-11-18 17:44:35.846064+00:00', 'user_id': "
+ "'13'},\n"
+ "META:{'ANDROID_HOME': '/opt/android-sdk',\n"
+ " 'ANDROID_SWT': '/usr/share/java',\n"
+ " 'ANT_HOME': '/usr/share/apache-ant',\n"
+ " 'BROWSER': '/usr/bin/xdg-open',\n"
+ " 'CELERY_LOADER': 'djcelery.loaders.DjangoLoader',\n"
+ " 'COLORTERM': 'gnome-terminal',\n"
+ " 'CONTENT_LENGTH': '',\n"
+ " 'CONTENT_TYPE': 'text/plain',\n"
+ " 'DBUS_SESSION_BUS_ADDRESS': "
+ "'unix:abstract=/tmp/dbus-JhG6SyhFDY,guid=731a9357e637213d4a6ee464564c7582',\n"
+ " 'DESKTOP_SESSION': 'xfce',\n"
+ " 'DISPLAY': ':0.0',\n"
+ " 'DJANGO_SETTINGS_MODULE': 'platform_toeic.settings',\n"
+ " 'GATEWAY_INTERFACE': 'CGI/1.1',\n"
+ " 'GDMSESSION': 'xfce',\n"
+ " 'GTK2_RC_FILES': '/home/choclate/.gtkrc-2.0',\n"
+ " 'GTK_MODULES': 'canberra-gtk-module',\n"
+ " 'HG': '/usr/bin/hg',\n"
+ " 'HOME': '/home/choclate',\n"
+ " 'HTTP_ACCEPT': 'application/json, text/plain, */*',\n"
+ " 'HTTP_ACCEPT_ENCODING': 'gzip, deflate',\n"
+ " 'HTTP_ACCEPT_LANGUAGE': 'en-US,en;q=0.5',\n"
+ " 'HTTP_AUTHORIZATION': 'Token cbeddc3eaa1c5076e6846283ee2d1a76755bd303',\n"
+ " 'HTTP_CONNECTION': 'keep-alive',\n"
+ ' \'HTTP_COOKIE\': \'user_id=13; last_request="2015-11-18 '
+ '17:44:35.846064+00:00"\',\n'
+ " 'HTTP_HOST': '127.0.0.1:8000',\n"
+ " 'HTTP_ORIGIN': 'http://127.0.0.1:9000',\n"
+ " 'HTTP_REFERER': 'http://127.0.0.1:9000/training/on?lesson=13',\n"
+ " 'HTTP_USER_AGENT': 'Mozilla/5.0 (X11; Linux x86_64; rv:42.0) "
+ "Gecko/20100101 '\n"
+ "                    'Firefox/42.0',\n"
+ " 'IBUS_DISABLE_SNOOPER': '1',\n"
+ " 'LANG': 'en_US.utf8',\n"
+ " 'LOGNAME': 'choclate',\n"
+ " 'LS_COLORS': "
+ "'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.pdf=00;32:*.ps=00;32:*.txt=00;32:*.patch=00;32:*.diff=00;32:*.log=00;32:*.tex=00;32:*.doc=00;32:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:',\n"
+ " 'MAIL': '/var/spool/mail/choclate',\n"
+ " 'MOZ_PLUGIN_PATH': '/usr/lib/mozilla/plugins',\n"
+ " 'OLDPWD': '/home/choclate/documents/projects/web',\n"
+ " 'PATH': "
+ "'/home/choclate/documents/projects/web/platform_toeic/env/bin:/usr/lib/hardening-wrapper/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/choclate/.gem/ruby/2.2.0/bin:/home/choclate/.gem/ruby/2.2.0/bin',\n"
+ " 'PATH_INFO': '/api/bulats/training',\n"
+ " 'PS1': '(env)\\\\[\\\\033[01;32m\\\\][\\\\u@\\\\h\\\\[\\\\033[01;37m\\\\] "
+ "'\n"
+ "        '\\\\W\\\\[\\\\033[01;32m\\\\]]\\\\$\\\\[\\\\033[00m\\\\] ',\n"
+ " 'PWD': '/home/choclate/documents/projects/web/platform_toeic',\n"
+ " 'QT_STYLE_OVERRIDE': 'g... &lt;trimmed 6048 bytes string&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>cls</td>
+                    <td class="code"><pre>&lt;class 'exam.views.Training'&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{'type': 'bulats'}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;exam.views.Training object at 0x7fdc30c80b00&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>initkwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame user">
+          <code>/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/site-packages/rest_framework/views.py</code> in <code>dispatch</code>
+
+          
+            <div class="context" id="c140583687790088">
+              
+                <ol style="display: none;" start="449" class="pre-context" id="pre140583687790088">
+                
+                  <li onclick="toggle('pre140583687790088', 'post140583687790088')"><pre>                                  self.http_method_not_allowed)</pre></li>
+                
+                  <li onclick="toggle('pre140583687790088', 'post140583687790088')"><pre>            else:</pre></li>
+                
+                  <li onclick="toggle('pre140583687790088', 'post140583687790088')"><pre>                handler = self.http_method_not_allowed</pre></li>
+                
+                  <li onclick="toggle('pre140583687790088', 'post140583687790088')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140583687790088', 'post140583687790088')"><pre>            response = handler(request, *args, **kwargs)</pre></li>
+                
+                  <li onclick="toggle('pre140583687790088', 'post140583687790088')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140583687790088', 'post140583687790088')"><pre>        except Exception as exc:</pre></li>
+                
+                </ol>
+              
+              <ol start="456" class="context-line">
+                <li onclick="toggle('pre140583687790088', 'post140583687790088')"><pre>                        response = self.handle_exception(exc)</pre> <span>...</span></li></ol>
+              
+                <ol style="display: none;" start="457" class="post-context" id="post140583687790088">
+                  
+                  <li onclick="toggle('pre140583687790088', 'post140583687790088')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140583687790088', 'post140583687790088')"><pre>        self.response = self.finalize_response(request, response, *args, **kwargs)</pre></li>
+                  
+                  <li onclick="toggle('pre140583687790088', 'post140583687790088')"><pre>        return self.response</pre></li>
+                  
+                  <li onclick="toggle('pre140583687790088', 'post140583687790088')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140583687790088', 'post140583687790088')"><pre>    def options(self, request, *args, **kwargs):</pre></li>
+                  
+                  <li onclick="toggle('pre140583687790088', 'post140583687790088')"><pre>        """</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140583687790088')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table style="display: none;" class="vars" id="v140583687790088">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>handler</td>
+                    <td class="code"><pre>&lt;bound method Training.get of &lt;exam.views.Training object at 0x7fdc30c80b00&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;rest_framework.request.Request object at 0x7fdc30c7e320&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{'type': 'bulats'}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;exam.views.Training object at 0x7fdc30c80b00&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame user">
+          <code>/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/site-packages/rest_framework/views.py</code> in <code>dispatch</code>
+
+          
+            <div class="context" id="c140583687786696">
+              
+                <ol style="display: none;" start="446" class="pre-context" id="pre140583687786696">
+                
+                  <li onclick="toggle('pre140583687786696', 'post140583687786696')"><pre>            # Get the appropriate handler method</pre></li>
+                
+                  <li onclick="toggle('pre140583687786696', 'post140583687786696')"><pre>            if request.method.lower() in self.http_method_names:</pre></li>
+                
+                  <li onclick="toggle('pre140583687786696', 'post140583687786696')"><pre>                handler = getattr(self, request.method.lower(),</pre></li>
+                
+                  <li onclick="toggle('pre140583687786696', 'post140583687786696')"><pre>                                  self.http_method_not_allowed)</pre></li>
+                
+                  <li onclick="toggle('pre140583687786696', 'post140583687786696')"><pre>            else:</pre></li>
+                
+                  <li onclick="toggle('pre140583687786696', 'post140583687786696')"><pre>                handler = self.http_method_not_allowed</pre></li>
+                
+                  <li onclick="toggle('pre140583687786696', 'post140583687786696')"><pre></pre></li>
+                
+                </ol>
+              
+              <ol start="453" class="context-line">
+                <li onclick="toggle('pre140583687786696', 'post140583687786696')"><pre>                        response = handler(request, *args, **kwargs)</pre> <span>...</span></li></ol>
+              
+                <ol style="display: none;" start="454" class="post-context" id="post140583687786696">
+                  
+                  <li onclick="toggle('pre140583687786696', 'post140583687786696')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140583687786696', 'post140583687786696')"><pre>        except Exception as exc:</pre></li>
+                  
+                  <li onclick="toggle('pre140583687786696', 'post140583687786696')"><pre>            response = self.handle_exception(exc)</pre></li>
+                  
+                  <li onclick="toggle('pre140583687786696', 'post140583687786696')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140583687786696', 'post140583687786696')"><pre>        self.response = self.finalize_response(request, response, *args, **kwargs)</pre></li>
+                  
+                  <li onclick="toggle('pre140583687786696', 'post140583687786696')"><pre>        return self.response</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140583687786696')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table style="display: none;" class="vars" id="v140583687786696">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>handler</td>
+                    <td class="code"><pre>&lt;bound method Training.get of &lt;exam.views.Training object at 0x7fdc30c80b00&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;rest_framework.request.Request object at 0x7fdc30c7e320&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{'type': 'bulats'}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;exam.views.Training object at 0x7fdc30c80b00&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame user">
+          <code>/home/choclate/documents/projects/web/platform_toeic/exam/views.py</code> in <code>get</code>
+
+          
+            <div class="context" id="c140583687787016">
+              
+                <ol style="display: none;" start="198" class="pre-context" id="pre140583687787016">
+                
+                  <li onclick="toggle('pre140583687787016', 'post140583687787016')"><pre>        data = request.GET</pre></li>
+                
+                  <li onclick="toggle('pre140583687787016', 'post140583687787016')"><pre>        part = data.get('part')</pre></li>
+                
+                  <li onclick="toggle('pre140583687787016', 'post140583687787016')"><pre>        lesson = data.get('lesson')</pre></li>
+                
+                  <li onclick="toggle('pre140583687787016', 'post140583687787016')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140583687787016', 'post140583687787016')"><pre>        if lesson:</pre></li>
+                
+                  <li onclick="toggle('pre140583687787016', 'post140583687787016')"><pre>            lesson = Lesson.objects.get(pk=lesson)</pre></li>
+                
+                  <li onclick="toggle('pre140583687787016', 'post140583687787016')"><pre>            score = lesson.score_set.filter(profile=profile).get()</pre></li>
+                
+                </ol>
+              
+              <ol start="205" class="context-line">
+                <li onclick="toggle('pre140583687787016', 'post140583687787016')"><pre>                        support = random_support(profile, lessons=[lesson])</pre> <span>...</span></li></ol>
+              
+                <ol style="display: none;" start="206" class="post-context" id="post140583687787016">
+                  
+                  <li onclick="toggle('pre140583687787016', 'post140583687787016')"><pre>            return Response({</pre></li>
+                  
+                  <li onclick="toggle('pre140583687787016', 'post140583687787016')"><pre>                "support": SupportSerializer(support).data,</pre></li>
+                  
+                  <li onclick="toggle('pre140583687787016', 'post140583687787016')"><pre>                "score": score_to_per(score)</pre></li>
+                  
+                  <li onclick="toggle('pre140583687787016', 'post140583687787016')"><pre>            })</pre></li>
+                  
+                  <li onclick="toggle('pre140583687787016', 'post140583687787016')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140583687787016', 'post140583687787016')"><pre>        if part is None:</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140583687787016')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table style="display: none;" class="vars" id="v140583687787016">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>data</td>
+                    <td class="code"><pre>&lt;QueryDict: {'lesson': ['13']}&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>part</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;rest_framework.request.Request object at 0x7fdc30c7e320&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>score</td>
+                    <td class="code"><pre>&lt;Score: Score object&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>lesson</td>
+                    <td class="code"><pre>&lt;Lesson: Titre d'une le�on bulats&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>profile</td>
+                    <td class="code"><pre>&lt;ExamProfile: bulats profile8&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;exam.views.Training object at 0x7fdc30c80b00&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>type</td>
+                    <td class="code"><pre>'bulats'</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame user">
+          <code>/home/choclate/documents/projects/web/platform_toeic/exam/utils.py</code> in <code>random_support</code>
+
+          
+            <div class="context" id="c140583687788232">
+              
+                <ol style="display: none;" start="65" class="pre-context" id="pre140583687788232">
+                
+                  <li onclick="toggle('pre140583687788232', 'post140583687788232')"><pre>    lesson = random_pick_lesson(profile, lessons)</pre></li>
+                
+                  <li onclick="toggle('pre140583687788232', 'post140583687788232')"><pre>    if part is None:</pre></li>
+                
+                  <li onclick="toggle('pre140583687788232', 'post140583687788232')"><pre>        questions = lesson.question_set.order_by('?').all()</pre></li>
+                
+                  <li onclick="toggle('pre140583687788232', 'post140583687788232')"><pre>    else:</pre></li>
+                
+                  <li onclick="toggle('pre140583687788232', 'post140583687788232')"><pre>        supports = Support.objects.filter(part=part, exam__type=profile.type)</pre></li>
+                
+                  <li onclick="toggle('pre140583687788232', 'post140583687788232')"><pre>        questions = lesson.question_set.order_by('?').\</pre></li>
+                
+                  <li onclick="toggle('pre140583687788232', 'post140583687788232')"><pre>            filter(support__in=supports)</pre></li>
+                
+                </ol>
+              
+              <ol start="72" class="context-line">
+                <li onclick="toggle('pre140583687788232', 'post140583687788232')"><pre>                question = biased_pick(questions, profile)</pre> <span>...</span></li></ol>
+              
+                <ol style="display: none;" start="73" class="post-context" id="post140583687788232">
+                  
+                  <li onclick="toggle('pre140583687788232', 'post140583687788232')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140583687788232', 'post140583687788232')"><pre>    return question.support</pre></li>
+                  
+                  <li onclick="toggle('pre140583687788232', 'post140583687788232')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140583687788232', 'post140583687788232')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140583687788232', 'post140583687788232')"><pre>def random_pick_lesson(profile, lessons=None):</pre></li>
+                  
+                  <li onclick="toggle('pre140583687788232', 'post140583687788232')"><pre>    """</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140583687788232')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table style="display: none;" class="vars" id="v140583687788232">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>questions</td>
+                    <td class="code"><pre>[]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>part</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>lessons</td>
+                    <td class="code"><pre>[&lt;Lesson: Titre d'une le�on bulats&gt;]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>profile</td>
+                    <td class="code"><pre>&lt;ExamProfile: bulats profile8&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>lesson</td>
+                    <td class="code"><pre>&lt;Lesson: Titre d'une le�on bulats&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame user">
+          <code>/home/choclate/documents/projects/web/platform_toeic/exam/utils.py</code> in <code>biased_pick</code>
+
+          
+            <div class="context" id="c140583687788040">
+              
+                <ol style="display: block;" start="54" class="pre-context" id="pre140583687788040">
+                
+                  <li onclick="toggle('pre140583687788040', 'post140583687788040')"><pre>    questions = list(questions)</pre></li>
+                
+                  <li onclick="toggle('pre140583687788040', 'post140583687788040')"><pre>    for question in questions_historic:</pre></li>
+                
+                  <li onclick="toggle('pre140583687788040', 'post140583687788040')"><pre>        if len(questions) == 1:</pre></li>
+                
+                  <li onclick="toggle('pre140583687788040', 'post140583687788040')"><pre>            break</pre></li>
+                
+                  <li onclick="toggle('pre140583687788040', 'post140583687788040')"><pre>        if question in questions:</pre></li>
+                
+                  <li onclick="toggle('pre140583687788040', 'post140583687788040')"><pre>            questions.remove(question)</pre></li>
+                
+                  <li onclick="toggle('pre140583687788040', 'post140583687788040')"><pre></pre></li>
+                
+                </ol>
+              
+              <ol start="61" class="context-line">
+                <li onclick="toggle('pre140583687788040', 'post140583687788040')"><pre>                return random.choice(questions)</pre> <span>...</span></li></ol>
+              
+                <ol style="display: block;" start="62" class="post-context" id="post140583687788040">
+                  
+                  <li onclick="toggle('pre140583687788040', 'post140583687788040')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140583687788040', 'post140583687788040')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140583687788040', 'post140583687788040')"><pre>def random_support(profile, lessons=None, part=None):</pre></li>
+                  
+                  <li onclick="toggle('pre140583687788040', 'post140583687788040')"><pre>    lesson = random_pick_lesson(profile, lessons)</pre></li>
+                  
+                  <li onclick="toggle('pre140583687788040', 'post140583687788040')"><pre>    if part is None:</pre></li>
+                  
+                  <li onclick="toggle('pre140583687788040', 'post140583687788040')"><pre>        questions = lesson.question_set.order_by('?').all()</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140583687788040')"><span>▼</span> Local vars</a>
+                
+            </div>
+            <table style="display: block;" class="vars" id="v140583687788040">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>profile</td>
+                    <td class="code"><pre>&lt;ExamProfile: bulats profile8&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>questions</td>
+                    <td class="code"><pre>[]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>questions_historic</td>
+                    <td class="code"><pre>[]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>historics</td>
+                    <td class="code"><pre>[]</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame user">
+          <code>/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/random.py</code> in <code>choice</code>
+
+          
+            <div class="context" id="c140583687788872">
+              
+                <ol style="display: none;" start="248" class="pre-context" id="pre140583687788872">
+                
+                  <li onclick="toggle('pre140583687788872', 'post140583687788872')"><pre>## -------------------- sequence methods  -------------------</pre></li>
+                
+                  <li onclick="toggle('pre140583687788872', 'post140583687788872')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140583687788872', 'post140583687788872')"><pre>    def choice(self, seq):</pre></li>
+                
+                  <li onclick="toggle('pre140583687788872', 'post140583687788872')"><pre>        """Choose a random element from a non-empty sequence."""</pre></li>
+                
+                  <li onclick="toggle('pre140583687788872', 'post140583687788872')"><pre>        try:</pre></li>
+                
+                  <li onclick="toggle('pre140583687788872', 'post140583687788872')"><pre>            i = self._randbelow(len(seq))</pre></li>
+                
+                  <li onclick="toggle('pre140583687788872', 'post140583687788872')"><pre>        except ValueError:</pre></li>
+                
+                </ol>
+              
+              <ol start="255" class="context-line">
+                <li onclick="toggle('pre140583687788872', 'post140583687788872')"><pre>                        raise IndexError('Cannot choose from an empty sequence')</pre> <span>...</span></li></ol>
+              
+                <ol style="display: none;" start="256" class="post-context" id="post140583687788872">
+                  
+                  <li onclick="toggle('pre140583687788872', 'post140583687788872')"><pre>        return seq[i]</pre></li>
+                  
+                  <li onclick="toggle('pre140583687788872', 'post140583687788872')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140583687788872', 'post140583687788872')"><pre>    def shuffle(self, x, random=None):</pre></li>
+                  
+                  <li onclick="toggle('pre140583687788872', 'post140583687788872')"><pre>        """Shuffle list x in place, and return None.</pre></li>
+                  
+                  <li onclick="toggle('pre140583687788872', 'post140583687788872')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140583687788872', 'post140583687788872')"><pre>        Optional argument random is a 0-argument function returning a</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140583687788872')"><span>▶</span> Local vars</a>
+                
+            </div>
+            <table style="display: none;" class="vars" id="v140583687788872">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>seq</td>
+                    <td class="code"><pre>[]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;random.Random object at 0x10623a8&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+    </ul>
+  </div>
+  
+  <form action="http://dpaste.com/" name="pasteform" id="pasteform" method="post">
+
+  <div style="display: none;" id="pastebinTraceback" class="pastebin">
+    <input name="language" value="PythonConsole" type="hidden">
+    <input name="title" value="IndexError at /api/bulats/training" type="hidden">
+    <input name="source" value="Django Dpaste Agent" type="hidden">
+    <input name="poster" value="Django" type="hidden">
+    <textarea name="content" id="traceback_area" cols="140" rows="25">Environment:
+
+
+Request
+ Method: GET
+Request URL: http://127.0.0.1:8000/api/bulats/training?lesson=13
+
+Django Version: 1.8.2
+Python Version: 3.4.3
+Installed Applications:
+('django.contrib.admin',
+ 'django.contrib.auth',
+ 'django.contrib.contenttypes',
+ 'django.contrib.sessions',
+ 'django.contrib.messages',
+ 'django.contrib.staticfiles',
+ 'django.contrib.sites',
+ 'rest_framework',
+ 'rest_framework.authtoken',
+ 'rest_auth',
+ 'rest_framework_swagger',
+ 'social.apps.django_app.default',
+ 'djcelery',
+ 'corsheaders',
+ 'rest_auth.registration',
+ 'allauth',
+ 'allauth.account',
+ 'allauth.socialaccount',
+ 'allauth.socialaccount.providers.facebook',
+ 'allauth.socialaccount.providers.google',
+ 'index',
+ 'exam',
+ 'lexicon')
+Installed Middleware:
+('django.contrib.sessions.middleware.SessionMiddleware',
+ 'corsheaders.middleware.CorsMiddleware',
+ 'django.middleware.common.CommonMiddleware',
+ 'django.contrib.auth.middleware.AuthenticationMiddleware',
+ 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+ 'django.contrib.messages.middleware.MessageMiddleware',
+ 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+ 'exam.middleware.TimeTrackerMiddleware')
+
+
+Traceback:
+File 
+"/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/site-packages/django/core/handlers/base.py"
+ in get_response
+  132.                     response = wrapped_callback(request, 
+*callback_args, **callback_kwargs)
+File 
+"/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/site-packages/django/views/decorators/csrf.py"
+ in wrapped_view
+  58.         return view_func(*args, **kwargs)
+File 
+"/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/site-packages/django/views/generic/base.py"
+ in view
+  71.             return self.dispatch(request, *args, **kwargs)
+File 
+"/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/site-packages/rest_framework/views.py"
+ in dispatch
+  456.             response = self.handle_exception(exc)
+File 
+"/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/site-packages/rest_framework/views.py"
+ in dispatch
+  453.             response = handler(request, *args, **kwargs)
+File 
+"/home/choclate/documents/projects/web/platform_toeic/exam/views.py" in 
+get
+  205.             support = random_support(profile, lessons=[lesson])
+File 
+"/home/choclate/documents/projects/web/platform_toeic/exam/utils.py" in 
+random_support
+  72.     question = biased_pick(questions, profile)
+File 
+"/home/choclate/documents/projects/web/platform_toeic/exam/utils.py" in 
+biased_pick
+  61.     return random.choice(questions)
+File 
+"/home/choclate/documents/projects/web/platform_toeic/env/lib/python3.4/random.py"
+ in choice
+  255.             raise IndexError('Cannot choose from an empty 
+sequence')
+
+Exception Type: IndexError at /api/bulats/training
+Exception Value: Cannot choose from an empty sequence
+</textarea>
+  <br><br>
+  <input value="Share this traceback on a public Web site" type="submit">
+  </div>
+</form>
+</div>
+
+
+
+<div id="requestinfo">
+  <h2>Request information</h2>
+
+
+  <h3 id="get-info">GET</h3>
+  
+    <table class="req">
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td>lesson</td>
+            <td class="code"><pre>'13'</pre></td>
+          </tr>
+        
+      </tbody>
+    </table>
+  
+
+  <h3 id="post-info">POST</h3>
+  
+    <p>No POST data</p>
+  
+  <h3 id="files-info">FILES</h3>
+  
+    <p>No FILES data</p>
+  
+
+
+  <h3 id="cookie-info">COOKIES</h3>
+  
+    <table class="req">
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td>user_id</td>
+            <td class="code"><pre>'13'</pre></td>
+          </tr>
+        
+          <tr>
+            <td>last_request</td>
+            <td class="code"><pre>'2015-11-18 17:44:35.846064+00:00'</pre></td>
+          </tr>
+        
+      </tbody>
+    </table>
+  
+
+  <h3 id="meta-info">META</h3>
+  <table class="req">
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>MAIL</td>
+          <td class="code"><pre>'/var/spool/mail/choclate'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_ACCEPT_ENCODING</td>
+          <td class="code"><pre>'gzip, deflate'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.input</td>
+          <td class="code"><pre>&lt;_io.BufferedReader name=10&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_PROTOCOL</td>
+          <td class="code"><pre>'HTTP/1.1'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REQUEST_METHOD</td>
+          <td class="code"><pre>'GET'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>_</td>
+          <td class="code"><pre>'/home/choclate/documents/projects/web/platform_toeic/env/bin/python'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_HOST</td>
+          <td class="code"><pre>'127.0.0.1:8000'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>RUN_MAIN</td>
+          <td class="code"><pre>'true'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGNAME</td>
+          <td class="code"><pre>'choclate'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_MANAGER</td>
+          <td class="code"><pre>'local/choclate:@/tmp/.ICE-unix/882,unix/choclate:/tmp/.ICE-unix/882'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONTENT_LENGTH</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DJANGO_SETTINGS_MODULE</td>
+          <td class="code"><pre>'platform_toeic.settings'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_AUTHORIZATION</td>
+          <td class="code"><pre>'Token cbeddc3eaa1c5076e6846283ee2d1a76755bd303'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_SOFTWARE</td>
+          <td class="code"><pre>'WSGIServer/0.2'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANG</td>
+          <td class="code"><pre>'en_US.utf8'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_SESSION_PATH</td>
+          <td class="code"><pre>'/org/freedesktop/DisplayManager/Session0'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WINDOWID</td>
+          <td class="code"><pre>'69206020'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GTK_MODULES</td>
+          <td class="code"><pre>'canberra-gtk-module'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_SEAT</td>
+          <td class="code"><pre>'seat0'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_USER_AGENT</td>
+          <td class="code"><pre>'Mozilla/5.0 (X11; Linux x86_64; rv:42.0) Gecko/20100101 Firefox/42.0'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ANT_HOME</td>
+          <td class="code"><pre>'/usr/share/apache-ant'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USER</td>
+          <td class="code"><pre>'choclate'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>QT_STYLE_OVERRIDE</td>
+          <td class="code"><pre>'gtk'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.run_once</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HG</td>
+          <td class="code"><pre>'/usr/bin/hg'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_VTNR</td>
+          <td class="code"><pre>'7'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>OLDPWD</td>
+          <td class="code"><pre>'/home/choclate/documents/projects/web'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REMOTE_ADDR</td>
+          <td class="code"><pre>'127.0.0.1'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VIRTUAL_ENV</td>
+          <td class="code"><pre>'/home/choclate/documents/projects/web/platform_toeic/env'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_SESSION_ID</td>
+          <td class="code"><pre>'c2'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ANDROID_SWT</td>
+          <td class="code"><pre>'/usr/share/java'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.url_scheme</td>
+          <td class="code"><pre>'http'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IBUS_DISABLE_SNOOPER</td>
+          <td class="code"><pre>'1'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SCRIPT_NAME</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ANDROID_HOME</td>
+          <td class="code"><pre>'/opt/android-sdk'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DESKTOP_SESSION</td>
+          <td class="code"><pre>'xfce'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REMOTE_HOST</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multithread</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STEAM_RUNTIME</td>
+          <td class="code"><pre>'0'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MOZ_PLUGIN_PATH</td>
+          <td class="code"><pre>'/usr/lib/mozilla/plugins'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.file_wrapper</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TZ</td>
+          <td class="code"><pre>'Europe/Paris'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DISPLAY</td>
+          <td class="code"><pre>':0.0'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DBUS_SESSION_BUS_ADDRESS</td>
+          <td class="code"><pre>'unix:abstract=/tmp/dbus-JhG6SyhFDY,guid=731a9357e637213d4a6ee464564c7582'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_ACCEPT_LANGUAGE</td>
+          <td class="code"><pre>'en-US,en;q=0.5'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XAUTHORITY</td>
+          <td class="code"><pre>'/home/choclate/.Xauthority'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SSH_AGENT_PID</td>
+          <td class="code"><pre>'901'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HOME</td>
+          <td class="code"><pre>'/home/choclate'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BROWSER</td>
+          <td class="code"><pre>'/usr/bin/xdg-open'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHELL</td>
+          <td class="code"><pre>'/bin/bash'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_SEAT_PATH</td>
+          <td class="code"><pre>'/org/freedesktop/DisplayManager/Seat0'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_GREETER_DATA_DIR</td>
+          <td class="code"><pre>'/var/lib/lightdm-data/choclate'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STEAM_FRAME_FORCE_CLOSE</td>
+          <td class="code"><pre>'1'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_PORT</td>
+          <td class="code"><pre>'8000'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_ACCEPT</td>
+          <td class="code"><pre>'application/json, text/plain, */*'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PWD</td>
+          <td class="code"><pre>'/home/choclate/documents/projects/web/platform_toeic'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GDMSESSION</td>
+          <td class="code"><pre>'xfce'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.version</td>
+          <td class="code"><pre>(1, 0)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_REFERER</td>
+          <td class="code"><pre>'http://127.0.0.1:9000/training/on?lesson=13'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PS1</td>
+          <td class="code"><pre>('(env)\\[\\033[01;32m\\][\\u@\\h\\[\\033[01;37m\\] '
+ '\\W\\[\\033[01;32m\\]]\\$\\[\\033[00m\\] ')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>QUERY_STRING</td>
+          <td class="code"><pre>'lesson=13'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHLVL</td>
+          <td class="code"><pre>'2'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_NAME</td>
+          <td class="code"><pre>'localhost.localdomain'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_SESSION_TYPE</td>
+          <td class="code"><pre>'x11'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_SESSION_DESKTOP</td>
+          <td class="code"><pre>'xfce'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SSH_AUTH_SOCK</td>
+          <td class="code"><pre>'/tmp/ssh-vdAOv5X1m9sy/agent.900'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_CONNECTION</td>
+          <td class="code"><pre>'keep-alive'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TERM</td>
+          <td class="code"><pre>'xterm'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_ORIGIN</td>
+          <td class="code"><pre>'http://127.0.0.1:9000'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_CURRENT_DESKTOP</td>
+          <td class="code"><pre>'XFCE'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COLORTERM</td>
+          <td class="code"><pre>'gnome-terminal'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TERMINATOR_UUID</td>
+          <td class="code"><pre>'urn:uuid:1fce5e3a-cd03-46c3-973c-43ce27a7cb96'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONTENT_TYPE</td>
+          <td class="code"><pre>'text/plain'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GTK2_RC_FILES</td>
+          <td class="code"><pre>'/home/choclate/.gtkrc-2.0'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH</td>
+          <td class="code"><pre>'/home/choclate/documents/projects/web/platform_toeic/env/bin:/usr/lib/hardening-wrapper/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/choclate/.gem/ruby/2.2.0/bin:/home/choclate/.gem/ruby/2.2.0/bin'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GATEWAY_INTERFACE</td>
+          <td class="code"><pre>'CGI/1.1'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multiprocess</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CELERY_LOADER</td>
+          <td class="code"><pre>'djcelery.loaders.DjangoLoader'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_RUNTIME_DIR</td>
+          <td class="code"><pre>'/run/user/1000'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LS_COLORS</td>
+          <td class="code"><pre>'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.pdf=00;32:*.ps=00;32:*.txt=00;32:*.patch=00;32:*.diff=00;32:*.log=00;32:*.tex=00;32:*.doc=00;32:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.errors</td>
+          <td class="code"><pre>&lt;_io.TextIOWrapper name='&lt;stderr&gt;' mode='w' encoding='UTF-8'&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>YAOURT_COLORS</td>
+          <td class="code"><pre>'nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_COOKIE</td>
+          <td class="code"><pre>'user_id=13; last_request="2015-11-18 17:44:35.846064+00:00"'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH_INFO</td>
+          <td class="code"><pre>'/api/bulats/training'</pre></td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+  <h3 id="settings-info">Settings</h3>
+  <h4>Using settings module <code>platform_toeic.settings</code></h4>
+  <table class="req">
+    <thead>
+      <tr>
+        <th>Setting</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_AGE</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ABSOLUTE_URL_OVERRIDES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_BROWSER_XSS_FILTER</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SSL_CERTFILE</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SSL_KEYFILE</td>
+          <td class="code"><pre>'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ACCOUNT_EMAIL_VERIFICATION</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_HSTS_INCLUDE_SUBDOMAINS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGES</td>
+          <td class="code"><pre>(('af', 'Afrikaans'),
+ ('ar', 'Arabic'),
+ ('ast', 'Asturian'),
+ ('az', 'Azerbaijani'),
+ ('bg', 'Bulgarian'),
+ ('be', 'Belarusian'),
+ ('bn', 'Bengali'),
+ ('br', 'Breton'),
+ ('bs', 'Bosnian'),
+ ('ca', 'Catalan'),
+ ('cs', 'Czech'),
+ ('cy', 'Welsh'),
+ ('da', 'Danish'),
+ ('de', 'German'),
+ ('el', 'Greek'),
+ ('en', 'English'),
+ ('en-au', 'Australian English'),
+ ('en-gb', 'British English'),
+ ('eo', 'Esperanto'),
+ ('es', 'Spanish'),
+ ('es-ar', 'Argentinian Spanish'),
+ ('es-mx', 'Mexican Spanish'),
+ ('es-ni', 'Nicaraguan Spanish'),
+ ('es-ve', 'Venezuelan Spanish'),
+ ('et', 'Estonian'),
+ ('eu', 'Basque'),
+ ('fa', 'Persian'),
+ ('fi', 'Finnish'),
+ ('fr', 'French'),
+ ('fy', 'Frisian'),
+ ('ga', 'Irish'),
+ ('gl', 'Galician'),
+ ('he', 'Hebrew'),
+ ('hi', 'Hindi'),
+ ('hr', 'Croatian'),
+ ('hu', 'Hungarian'),
+ ('ia', 'Interlingua'),
+ ('id', 'Indonesian'),
+ ('io', 'Ido'),
+ ('is', 'Icelandic'),
+ ('it', 'Italian'),
+ ('ja', 'Japanese'),
+ ('ka', 'Georgian'),
+ ('kk', 'Kazakh'),
+ ('km', 'Khmer'),
+ ('kn', 'Kannada'),
+ ('ko', 'Korean'),
+ ('lb', 'Luxembourgish'),
+ ('lt', 'Lithuanian'),
+ ('lv', 'Latvian'),
+ ('mk', 'Macedonian'),
+ ('ml', 'Malayalam'),
+ ('mn', 'Mongolian'),
+ ('mr', 'Marathi'),
+ ('my', 'Burmese'),
+ ('nb', 'Norwegian Bokmal'),
+ ('ne', 'Nepali'),
+ ('nl', 'Dutch'),
+ ('nn', 'Norwegian Nynorsk'),
+ ('os', 'Ossetic'),
+ ('pa', 'Punjabi'),
+ ('pl', 'Polish'),
+ ('pt', 'Portuguese'),
+ ('pt-br', 'Brazilian Portuguese'),
+ ('ro', 'Romanian'),
+ ('ru', 'Russian'),
+ ('sk', 'Slovak'),
+ ('sl', 'Slovenian'),
+ ('sq', 'Albanian'),
+ ('sr', 'Serbian'),
+ ('sr-latn', 'Serbian Latin'),
+ ('sv', 'Swedish'),
+ ('sw', 'Swahili'),
+ ('ta', 'Tamil'),
+ ('te', 'Telugu'),
+ ('th', 'Thai'),
+ ('tr', 'Turkish'),
+ ('tt', 'Tatar'),
+ ('udm', 'Udmurt'),
+ ('uk', 'Ukrainian'),
+ ('ur', 'Urdu'),
+ ('vi', 'Vietnamese'),
+ ('zh-cn', 'Simplified Chinese'),
+ ('zh-hans', 'Simplified Chinese'),
+ ('zh-hant', 'Traditional Chinese'),
+ ('zh-tw', 'Traditional Chinese'))</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_I18N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MIDDLEWARE_CLASSES</td>
+          <td class="code"><pre>('django.contrib.sessions.middleware.SessionMiddleware',
+ 'corsheaders.middleware.CorsMiddleware',
+ 'django.middleware.common.CommonMiddleware',
+ 'django.contrib.auth.middleware.AuthenticationMiddleware',
+ 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+ 'django.contrib.messages.middleware.MessageMiddleware',
+ 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+ 'exam.middleware.TimeTrackerMiddleware')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_PATH</td>
+          <td class="code"><pre>'/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AVAILABLE_EXAMS</td>
+          <td class="code"><pre>['toeic', 'bulats']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_EXCEPTION_REPORTER_FILTER</td>
+          <td class="code"><pre>'django.views.debug.SafeExceptionReporterFilter'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_REDIRECT_EXEMPT</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_URL</td>
+          <td class="code"><pre>'/login'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_EXPIRE_AT_BROWSER_CLOSE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_ENGINE</td>
+          <td class="code"><pre>'django.contrib.sessions.backends.db'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ADMINS</td>
+          <td class="code"><pre>[('Cl�ment Villain', 'choclatefr@gmail.com')]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTHENTICATION_BACKENDS</td>
+          <td class="code"><pre>('social.backends.facebook.FacebookOAuth2',
+ 'social.backends.google.GoogleOAuth2',
+ 'django.contrib.auth.backends.ModelBackend',
+ 'allauth.account.auth_backends.AuthenticationBackend')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_CACHE_ALIAS</td>
+          <td class="code"><pre>'default'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_CONTEXT_PROCESSORS</td>
+          <td class="code"><pre>('django.contrib.auth.context_processors.auth',
+ 'django.template.context_processors.debug',
+ 'django.template.context_processors.i18n',
+ 'django.template.context_processors.media',
+ 'django.template.context_processors.static',
+ 'django.template.context_processors.tz',
+ 'django.contrib.messages.context_processors.messages')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_URL</td>
+          <td class="code"><pre>'/static/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FILE_STORAGE</td>
+          <td class="code"><pre>'django.core.files.storage.FileSystemStorage'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORMAT_MODULE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_TABLESPACE</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_SSL_REDIRECT</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CELERYBEAT_SCHEDULER</td>
+          <td class="code"><pre>'djcelery.schedulers.DatabaseScheduler'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MAILGUN_ACCESS_KEY</td>
+          <td class="code"><pre>'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SWAGGER_SETTINGS</td>
+          <td class="code"><pre>{'api_key': '',
+ 'api_path': '/',
+ 'api_version': '0.1',
+ 'doc_expansion': 'none',
+ 'enabled_methods': ['get', 'post', 'put', 'patch', 'delete'],
+ 'exclude_namespaces': [],
+ 'info': {'contact': 'info@toeic.com',
+          'description': 'This a doc for our API ',
+          'license': 'Apache 2.0',
+          'licenseUrl': 'http://www.apache.org/licenses/LICENSE-2.0.html',
+          'termsOfServiceUrl': 'http://helloreverb.com/terms/',
+          'title': 'Toeic App'},
+ 'is_authenticated': False,
+ 'is_superuser': True,
+ 'permission_denied_handler': None,
+ 'template_path': 'rest_framework_swagger/index.html',
+ 'token_type': 'Token'}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_SSL_HOST</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_REDIRECT_URL</td>
+          <td class="code"><pre>'/#/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASES</td>
+          <td class="code"><pre>{'default': {'ATOMIC_REQUESTS': False,
+             'AUTOCOMMIT': True,
+             'CONN_MAX_AGE': 0,
+             'ENGINE': 'django.db.backends.sqlite3',
+             'HOST': '',
+             'NAME': '/home/choclate/documents/projects/web/platform_toeic/db.sqlite3',
+             'OPTIONS': {},
+             'PASSWORD': '********************',
+             'PORT': '',
+             'TEST': {'CHARSET': None,
+                      'COLLATION': None,
+                      'MIRROR': None,
+                      'NAME': None},
+             'TIME_ZONE': 'UTC',
+             'USER': ''}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_URL</td>
+          <td class="code"><pre>'/media/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATES</td>
+          <td class="code"><pre>[{'APP_DIRS': True,
+  'BACKEND': 'django.template.backends.django.DjangoTemplates',
+  'DIRS': ['/home/choclate/documents/projects/web/platform_toeic/templates'],
+  'OPTIONS': {'context_processors': ['django.core.context_processors.request',
+                                     'allauth.account.context_processors.account',
+                                     'allauth.socialaccount.context_processors.socialaccount',
+                                     'django.contrib.auth.context_processors.auth',
+                                     'django.template.context_processors.debug',
+                                     'django.template.context_processors.i18n',
+                                     'social.apps.django_app.context_processors.backends',
+                                     'social.apps.django_app.context_processors.login_redirect',
+                                     'django.template.context_processors.media',
+                                     'django.template.context_processors.static',
+                                     'django.template.context_processors.tz',
+                                     'django.contrib.messages.context_processors.messages']}}]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_SSL</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MONTH_DAY_FORMAT</td>
+          <td class="code"><pre>'F j'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_OBJECTIVES</td>
+          <td class="code"><pre>{'bulats': 75, 'toeic': 750}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_AGE</td>
+          <td class="code"><pre>1209600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_SAVE_EVERY_REQUEST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST</td>
+          <td class="code"><pre>'localhost'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATETIME_INPUT_FORMATS</td>
+          <td class="code"><pre>('%Y-%m-%d %H:%M:%S',
+ '%Y-%m-%d %H:%M:%S.%f',
+ '%Y-%m-%d %H:%M',
+ '%Y-%m-%d',
+ '%m/%d/%Y %H:%M:%S',
+ '%m/%d/%Y %H:%M:%S.%f',
+ '%m/%d/%Y %H:%M',
+ '%m/%d/%Y',
+ '%m/%d/%y %H:%M:%S',
+ '%m/%d/%y %H:%M:%S.%f',
+ '%m/%d/%y %H:%M',
+ '%m/%d/%y')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SETTINGS_MODULE</td>
+          <td class="code"><pre>'platform_toeic.settings'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DISALLOWED_USER_AGENTS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_TLS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SITE_ID</td>
+          <td class="code"><pre>1</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NUMBER_GROUPING</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_FAILURE_VIEW</td>
+          <td class="code"><pre>'django.views.csrf.csrf_failure'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MAILGUN_SERVER_NAME</td>
+          <td class="code"><pre>'sandboxe3c58eeb3c2e4f9a8ac3992708f114b1.mailgun.org'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_CONTENT_TYPE_NOSNIFF</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGES_BIDI</td>
+          <td class="code"><pre>('he', 'ar', 'fa', 'ur')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CELERY_TIMEZONE</td>
+          <td class="code"><pre>'Europe/Paris'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOCALE_PATHS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGGING_CONFIG</td>
+          <td class="code"><pre>'logging.config.dictConfig'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_STRING_IF_INVALID</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATETIME_FORMAT</td>
+          <td class="code"><pre>'N j, Y, P'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>YEAR_MONTH_FORMAT</td>
+          <td class="code"><pre>'F Y'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECRET_KEY</td>
+          <td class="code"><pre>'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PREPEND_WWW</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_FILE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_PORT</td>
+          <td class="code"><pre>25</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_FORMAT</td>
+          <td class="code"><pre>'N j, Y'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_INPUT_FORMATS</td>
+          <td class="code"><pre>('%Y-%m-%d',
+ '%m/%d/%Y',
+ '%m/%d/%y',
+ '%b %d %Y',
+ '%b %d, %Y',
+ '%d %b %Y',
+ '%d %b, %Y',
+ '%B %d %Y',
+ '%B %d, %Y',
+ '%d %B %Y',
+ '%d %B, %Y')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_NON_SERIALIZED_APPS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIRST_DAY_OF_WEEK</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FROM_EMAIL</td>
+          <td class="code"><pre>'noreply@polylearn.co'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_CONTENT_TYPE</td>
+          <td class="code"><pre>'text/html'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_SECONDS</td>
+          <td class="code"><pre>600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_PATH</td>
+          <td class="code"><pre>'/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SIGNING_BACKEND</td>
+          <td class="code"><pre>'django.core.signing.TimestampSigner'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MESSAGE_STORAGE</td>
+          <td class="code"><pre>'django.contrib.messages.storage.fallback.FallbackStorage'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CORS_ALLOW_CREDENTIALS</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_ALIAS</td>
+          <td class="code"><pre>'default'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REST_SESSION_LOGIN</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IGNORABLE_404_URLS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_PATH</td>
+          <td class="code"><pre>'/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_ETAGS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WSGI_APPLICATION</td>
+          <td class="code"><pre>'platform_toeic.wsgi.application'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ALLOWED_INCLUDE_ROOTS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_ZONE</td>
+          <td class="code"><pre>'Europe/Paris'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_EMAIL</td>
+          <td class="code"><pre>'root@localhost'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SUBJECT_PREFIX</td>
+          <td class="code"><pre>'[Django] '</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG_PROPAGATE_EXCEPTIONS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_PERMISSIONS</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_ROOT</td>
+          <td class="code"><pre>'/home/choclate/documents/projects/web/platform_toeic/static'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_ROUTERS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST_PASSWORD</td>
+          <td class="code"><pre>'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_INPUT_FORMATS</td>
+          <td class="code"><pre>('%H:%M:%S', '%H:%M:%S.%f', '%H:%M')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ALLOWED_HOSTS</td>
+          <td class="code"><pre>['api.polylearn.co']</pre></td>
+        </tr>
+      
+        <tr>
+          <td>THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>','</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CELERYBEAT_SCHEDULE</td>
+          <td class="code"><pre>{'save-estimated-exam-score': {'schedule': datetime.timedelta(1),
+                               'task': 'exam.tasks.save_estimated_exam_score'}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_STORAGE</td>
+          <td class="code"><pre>'whitenoise.django.GzipManifestStaticFilesStorage'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATETIME_FORMAT</td>
+          <td class="code"><pre>'m/d/Y P'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_DIRECTORY_PERMISSIONS</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATE_FORMAT</td>
+          <td class="code"><pre>'m/d/Y'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_TIMEOUT</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DECIMAL_SEPARATOR</td>
+          <td class="code"><pre>'.'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_HANDLERS</td>
+          <td class="code"><pre>('django.core.files.uploadhandler.MemoryFileUploadHandler',
+ 'django.core.files.uploadhandler.TemporaryFileUploadHandler')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SILENCED_SYSTEM_CHECKS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_DIRS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_PROXY_SSL_HEADER</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_SERIALIZER</td>
+          <td class="code"><pre>'django.contrib.sessions.serializers.JSONSerializer'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIXTURE_DIRS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REST_FRAMEWORK</td>
+          <td class="code"><pre>{'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework.authentication.TokenAuthentication',),
+ 'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',)}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_FINDERS</td>
+          <td class="code"><pre>('django.contrib.staticfiles.finders.FileSystemFinder',
+ 'django.contrib.staticfiles.finders.AppDirectoriesFinder')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_BACKEND</td>
+          <td class="code"><pre>'django_mailgun.MailgunBackend'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_L10N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_DIRS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BASE_DIR</td>
+          <td class="code"><pre>'/home/choclate/documents/projects/web/platform_toeic'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_INDEX_TABLESPACE</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_KEY_PREFIX</td>
+          <td class="code"><pre>'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_DEBUG</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_CHARSET</td>
+          <td class="code"><pre>'utf-8'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHES</td>
+          <td class="code"><pre>{'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_MAX_MEMORY_SIZE</td>
+          <td class="code"><pre>2621440</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CORS_ORIGIN_ALLOW_ALL</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_AGE</td>
+          <td class="code"><pre>31449600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_RUNNER</td>
+          <td class="code"><pre>'djcelery.contrib.test_runner.CeleryTestSuiteRunner'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INTERNAL_IPS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_NAME</td>
+          <td class="code"><pre>'sessionid'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_NAME</td>
+          <td class="code"><pre>'csrftoken'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_TEMP_DIR</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ROOT_URLCONF</td>
+          <td class="code"><pre>'platform_toeic.urls'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST_USER</td>
+          <td class="code"><pre>''</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGGING</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_ROOT</td>
+          <td class="code"><pre>'/home/choclate/documents/projects/web/platform_toeic/media'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_HSTS_SECONDS</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_TZ</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGOUT_URL</td>
+          <td class="code"><pre>'/accounts/logout/'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_LOADERS</td>
+          <td class="code"><pre>('django.template.loaders.filesystem.Loader',
+ 'django.template.loaders.app_directories.Loader')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_X_FORWARDED_HOST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORCE_SCRIPT_NAME</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_RESET_TIMEOUT_DAYS</td>
+          <td class="code"><pre>'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTH_USER_MODEL</td>
+          <td class="code"><pre>'auth.User'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INSTALLED_APPS</td>
+          <td class="code"><pre>('django.contrib.admin',
+ 'django.contrib.auth',
+ 'django.contrib.contenttypes',
+ 'django.contrib.sessions',
+ 'django.contrib.messages',
+ 'django.contrib.staticfiles',
+ 'django.contrib.sites',
+ 'rest_framework',
+ 'rest_framework.authtoken',
+ 'rest_auth',
+ 'rest_framework_swagger',
+ 'social.apps.django_app.default',
+ 'djcelery',
+ 'corsheaders',
+ 'rest_auth.registration',
+ 'allauth',
+ 'allauth.account',
+ 'allauth.socialaccount',
+ 'allauth.socialaccount.providers.facebook',
+ 'allauth.socialaccount.providers.google',
+ 'index',
+ 'exam',
+ 'lexicon')</pre></td>
+        </tr>
+      
+        <tr>
+          <td>APPEND_SLASH</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_CHARSET</td>
+          <td class="code"><pre>'utf-8'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_HASHERS</td>
+          <td class="code"><pre>'********************'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MANAGERS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>X_FRAME_OPTIONS</td>
+          <td class="code"><pre>'SAMEORIGIN'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MIGRATION_MODULES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_NAME</td>
+          <td class="code"><pre>'django_language'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_FORMAT</td>
+          <td class="code"><pre>'P'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_CODE</td>
+          <td class="code"><pre>'en-us'</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+</div>
+
+  <div id="explanation">
+    <p>
+      You're seeing this error because you have <code>DEBUG = True</code> in your
+      Django settings file. Change that to <code>False</code>, and Django will
+      display a standard page generated by the handler for this status code.
+    </p>
+  </div>
+
+
+
+</body></html>
