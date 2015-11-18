@@ -82,8 +82,27 @@
 					<h1>Python, le coup de foudre</h1>
 				</section>
 
-				<section> <!-- TODO: Ajouter/supprimer/chercher un element -->
-					<h5>Manipuler une liste n'a jamais été aussi facile !</h5>
+				<section>
+					<h5>Manipuler une liste n'a jamais été aussi facile ! (1)</h5>
+					<pre>
+						<code class="python">
+asso_liste = ["Atilla", "BDE Stay High", "EISTI Poker"]
+
+asso_liste.append("Cap'EISTI")  # Ajoute à la fin de la liste
+asso_liste.remove("Atilla")  # Retire l'élément "Atilla"
+dernier = asso_liste.pop()  # Retire et renvoie le dernier
+
+if "BDE Stay High" in asso_liste:
+    indice = asso_liste.index("Atilla")  # indice = 0
+
+for asso in asso_liste:
+    print(asso)
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h5>Manipuler une liste n'a jamais été aussi facile ! (2)</h5>
 					<pre>
 						<code class="python">
 asso_liste = ["Atilla", "BDE Stay High", "EISTI Poker"]
@@ -105,7 +124,7 @@ for indice, asso in enumerate(reversed(asso_liste)):
 				</section>
 
 				<section>
-					<h5>Manipuler une liste n'a jamais été aussi facile ! (2)</h5>
+					<h5>Manipuler une liste n'a jamais été aussi facile ! (3)</h5>
 					<pre>
 						<code class="python">
 somme = sum(x ** 2 for x in range(1000))
@@ -125,7 +144,7 @@ asso_liste[3:7]  # Du 4ème au 7ème !
 
 				<section>
 					<h5>Une belle fonction récursive</h5>
-					<span>Tu sens arriver la programation dynamique?</span>
+					<span>Tu sens arriver la mémoïsation?</span>
 					<pre>
 						<code class="python">
 def fib(n):
@@ -140,6 +159,10 @@ def fib(n):
 
 				<section>
 					<h5>Ajoutez un cache à vos fonctions !</h5>
+					<span>
+						Un décorateur est une fonction qui prend en paramètre une fonction
+						et qui renvoie une fonction
+					</span>
 					<pre>
 						<code class="python">
 import functools
@@ -157,9 +180,43 @@ def fib(n):
 
 				<section>
 					<h5>Vous n'avez jamais autant aimé chercher dans un dictionaire !</h5>
+					<span>Un dictionnaire, c'est comme un tableau sauf qu'au lieu des indices on a une clé !</span>
 					<pre>
 						<code class="python">
-# TODO
+dico = {}  # Dictionnaire vide
+
+dico["ma clé"] = 42
+print(dico["ma clé"])  # 42
+print("ma clé" in dico)  # True
+
+print(dico["autre clé"])  # Une exception est levée
+print(dico.get("autre clé") is None)  # True
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h5>Vous n'avez jamais autant aimé chercher dans un dictionaire ! (2)</h5>
+					<ul>
+						<li>Très utile pour représentez une liste d'adjacence (graphe)</li>
+						<li>Ou tout simplement pour associer des valeurs à des objets</li>
+					</ul>
+					<pre>
+						<code class="python">
+personnes = ["H", "F", "H", "F", "F"]
+d = {}
+for personne in personnes:
+    if personne not in d:
+        d[personne] = 1
+    else:
+        d[personne] += 1
+
+>>> d
+{'H': 2, 'F': 3}
+
+>>> set(personnes)  # {'H', 'F'}
+# Cette ligne marche peu importe le nombre de genres et leur type !
+d = {genre: personnes.count(genre) for genre in set(personnes)}
 						</code>
 					</pre>
 				</section>
@@ -188,7 +245,6 @@ def fib(n):
 					</p>
 				</section>
 			</section>
-
 
 				<section>
 					<h5>Dijkstra en quelques lignes?</h5>
