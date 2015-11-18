@@ -256,6 +256,95 @@ d = {genre: personnes.count(genre) for genre in set(personnes)}
 
 			<section>
 				<section>
+					<h1>Python est amour !</h1>
+					<h1>Python est objets !</h1>
+				</section>
+
+				<section>
+					<h5>Les objets en Python, comment ça marche?</h5>
+					<ul>
+						<li class="fragment">Tout est objet ! (Même les fonctions, même les classes !)</li>
+						<li class="fragment">Tout est publique ! Privé est une convention d'écriture</li>
+						<li class="fragment">Héritage multiple</li>
+						<li class="fragment">Pas d'interface (duck typing)</li>
+					</ul>
+					<blockquote class="fragment">
+						Si je vois un animal qui vole comme un canard, cancane comme un canard, et nage comme un canard, alors j'appelle cet oiseau un canard
+					</blockquote>
+				</section>
+
+				<section>
+					<h5>Déclarer une classe</h5>
+					<pre>
+						<code class="python">
+class Foo(object):  #  new-style class (versus Foo())
+    count = 0  # Attribut de classe
+    def __init__(self):  # Constructeur
+        self.x = 42  # Attribut d'instance
+        self.__class__.count += 1
+
+obj = Foo()
+>>> obj.count  # 1
+>>> obj.x  # 42
+obj2 = Foo()
+>>> obj2.count  # 2
+>>> obj.count == obj2.count  # True
+obj.y = 0  # On peut assigner de nouveaux attributs
+>>> obj.inconnu  # Lève une exception
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h5>Héritage</h5>
+					<span>On remonte le scope dans l'ordre des parents (__mro__)</span>
+					<pre>
+						<code class="python" style="max-height: None;">
+class Foo(object):
+    count = 0
+    def __init__(self):
+        self.x = 42
+        self.__class__.count += 1
+
+class Bar(Foo, object):
+    def add(self, x):
+        return self.x + x
+
+    def _methode_prive(self):
+        print("Regarde ailleurs !")
+
+f = Foo()
+b = Bar()
+>>> b.count  # 2
+>>> b.add(2)  # 44
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h5>Surcharge d'opérateur</h5>
+					<pre>
+						<code class="python">
+import sys
+class Penis(object):
+
+    def __len__(self):
+        return sys.maxsize
+
+    def __gt__(self, x):
+        return True
+
+penis = Penis()
+>>> len(penis)  # 9223372036854775807
+>>> penis > 42  # True
+>>> penis < 42  # Une exception est levée
+						</code>
+					</pre>
+				</section>
+			</section>
+
+			<section>
+				<section>
 					<h1>Aller plus loin...</h1>
 				</section>
 
@@ -263,6 +352,7 @@ d = {genre: personnes.count(genre) for genre in set(personnes)}
 					<h5>Notions avancés !</h5>
 					<ul>
 						<li class="fragment">Générateur</li>
+						<li class="fragment">Closure</li>
 						<li class="fragment">Co-routine</li>
 						<li class="fragment">asyncio (Python 3.5)</li>
 						<li class="fragment">Meta classe</li>
@@ -277,7 +367,6 @@ d = {genre: personnes.count(genre) for genre in set(personnes)}
 						<a href="assets/html/django_trace.htm">Ici</a>
 					</p>
 				</section>
-			</section>
 
 				<section>
 					<h5>Dijkstra en quelques lignes?</h5>
@@ -303,6 +392,7 @@ def dijkstra(graph, begin):
 						</code>
 					</pre>
 				</section>
+			</section>
 
 			<section>
 				<section>
