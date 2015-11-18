@@ -4,7 +4,7 @@
 
 	<meta charset="utf-8">
 
-	<title>Atilla • reveal.js</title>
+	<title>Atilla • Formation Python</title>
 
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -78,12 +78,86 @@
 					<h1>Python, le coup de foudre</h1>
 				</section>
 
+				<section> <!-- TODO: Ajouter/supprimer/chercher un element -->
+					<h5>Manipuler une liste n'a jamais été aussi facile !</h5>
+					<pre>
+						<code class="python">
+asso_liste = ["Atilla", "BDE Stay High", "EISTI Poker"]
+
+if "Contr'Eisi" not in asso_liste:
+    print("Il manque des associations !")
+
+# Liste en compréhension
+minuscule = [asso.lower() for asso in asso_liste]
+filtre = [asso for asso in asso_liste if len(asso) <= 9]
+
+if asso_liste:  # La liste n'est pas vide
+    print("Il reste encore des associations à l'EISTI")
+
+for indice, asso in enumerate(reversed(asso_liste)):
+    print(indice, "/ ", asso)
+						</code>
+					</pre>
+				</section>
+
 				<section>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac ex
-						non ligula euismod pharetra at sed elit. Nullam eget varius leo.
-						Integer sit amet suscipit ex. Donec ultrices molestie.
-					</p>
+					<h5>Manipuler une liste n'a jamais été aussi facile ! (2)</h5>
+					<pre>
+						<code class="python">
+somme = sum(x ** 2 for x in range(1000))
+minimum = min([1, -5, 4, 3])
+
+asso_liste = ["Atilla", "BDE Stay High", "EISTI Poker"]
+dernier = asso_liste[-1]  # asso_liste[len(asso_liste) - 1], berk !
+
+# slicing: asso_liste[debut:fin:pas]
+dix_premiers = asso_liste[:10]
+dix_derniers = asso_liste[-10:]
+sans_les_dix_premiers = asso_liste[10:]
+asso_liste[3:7]  # Du 4ème au 7ème !
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h5>Une belle fonction récursive</h5>
+					<span>Tu sens arriver la programation dynamique?</span>
+					<pre>
+						<code class="python">
+def fib(n):
+    """Suite de fibonacci, mais c'est super lent ! :("""
+    if n <= 1:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h5>Ajoutez un cache à vos fonctions !</h5>
+					<pre>
+						<code class="python">
+import functools
+
+@functools.lru_cache(maxsize=None)
+def fib(n):
+    """Suite de fibonacci, super rapide !"""
+    if n <= 1:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h5>Vous n'avez jamais autant aimé chercher dans un dictionaire !</h5>
+					<pre>
+						<code class="python">
+# TODO
+						</code>
+					</pre>
 				</section>
 			</section>
 
@@ -93,6 +167,31 @@
 				</section>
 
 				<section>
+					<h5>Dijkstra en quelques lignes?</h5>
+					<pre>
+						<code class="python" style="max-height: None">
+def dijkstra(graph, begin):
+    """graph is a dict as an adjacent list.
+    graph[node] = [(weight, dest), ...]
+    """
+
+    heap = copy.deepcopy(graph[begin])
+    heapq.heapify(heap)
+    shortests = {begin: 0}
+
+    while heap:
+        w, d = heapq.heappop(heap)
+        if d not in shortests:
+            shortests[d] = w
+            for weight, dest in graph[d]:
+                heapq.heappush(heap, (shortests[d] + weight, dest))
+
+   return shortests
+						</code>
+					</pre>
+				</section>
+
+		    <section>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac ex
 						non ligula euismod pharetra at sed elit. Nullam eget varius leo.
