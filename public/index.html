@@ -56,24 +56,203 @@
 
 				<section>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac ex
-						non ligula euismod pharetra at sed elit. Nullam eget varius leo.
-						Integer sit amet suscipit ex. Donec ultrices molestie.
-					</p>
-				</section>
-			</section>
+						<h5>Langage de programmation interprété multi-paradigme</h5>
+						<ul>
+						  <li class="fragment">Impératif</li>
+							<li class="fragment">Fontionnel</li>
+						  <li class="fragment">Orienté objet</li>
+						</ul>
 
-			<section>
-				<section>
-					<h1>Pourquoi apprendre Python?</h1>
+					</p>
 				</section>
 
 				<section>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac ex
-						non ligula euismod pharetra at sed elit. Nullam eget varius leo.
-						Integer sit amet suscipit ex. Donec ultrices molestie.
+						Créé en 1990 par Guido van Rossum
+						Inspiré de ABC, de Modula-3, du C et des outils UNIX.
 					</p>
+				</section>
+
+				<section>
+					<h5>Une grande communauté</h5>
+					<p class="fragment">
+						165k projets sur Github
+					</p>
+					<p class="fragment">
+						7.5% du nombre total de projets
+					</p>
+					<p class ="fragment">
+						5ème langage de programmation le plus utilisé
+					</p>
+				</section>
+				<section>
+					<p>
+						<h5>Un langage où tout est déjà programmé</h5>
+					</p>
+					<p class="fragment">
+						Une bibliothèque standard immense </br>
+					</q>&ldquo;Batteries included&ldquo;<q>
+						<pre class="fragment">
+							<code class="python">
+import os
+import sys
+import random
+import itertools
+import functools
+from math import cos, sqrt
+							</code>
+						</pre>
+					</p>
+				</section>
+
+				<section>
+					<p>
+						<h5>Un langage où tout est déjà programmé</h5>
+					</p>
+					<p class="fragment">
+						Si vous cherchez un module, il existe sans dout déjà parmis les 76000 sur PyPI
+						<pre class="fragment">
+							<code class="UNIX">
+sudo apt-get install python-pip
+pip install PackageName
+python3.4 -m pip install PackageName
+pip install Django 1.8.5
+pip install PdfEditor 0.0.3
+							</code>
+						</pre>
+					</p>
+				</section>
+
+				<section>
+					<p>
+						<h5>Un langage où tout est déjà programmé</h5>
+					</p>
+					<p class="fragment">
+						Des implémentations supplémentaires : CPython, Jython, IronPython, PyPy, etc
+				</section>
+
+				<section>
+					<p>
+						<h5>Et pour ceux qui ont peur de tout casser</h5>
+						Ou ceux qui veulent pouvoir gérer les versions différentees entre projet
+					</p>
+					<p class="fragment">
+						Virtualenv est votre ami
+					</p>
+					<p class="fragment">
+						Virtualenv est un outil fait pour créer des environnements isolés
+					</p>
+					<p class="fragment">
+						<pre class="fragment">
+							<code class="UNIX">
+pip install virtualenv # Pour intaller virtualenv
+virtualenv ENV # Pour creer un environnement
+source ENV/bin/activate # Pour le lancer
+							</code>
+						</pre>
+					</p>
+				</section>
+
+				<section>
+					<p>
+						<h5>Python 2 ou Python 3 ?</h5>
+					</p>
+					<p class="fragment">
+						Python 3.
+					</p>
+					<p class="fragment">
+						Python 2 pour vieux projets et pour packages manquant sur Python 3
+					</p>
+					<p class="fragment">
+						Python 3 est restructuré et en UTF-8 par défaut
+					</p>
+					<p class="fragment">
+						Mais du coup il n'est pas rétrocompatible
+					</p>
+					<p class="fragment">
+						Quelques incohérences rectifiées (return())
+					</p>
+					<p class="fragment">
+						Pip est intégré
+					</p>
+				</section>
+
+
+
+
+			</section>
+
+			<section>
+				<section>
+					<h1>Pourquoi apprendre Python ?</h1>
+				</section>
+
+				<section>
+					<p>
+						<h5>Langage lisible</h5>
+						<pre>
+							<code class="python">
+def factorielle(x):
+    if x < 2:
+        return 1
+    else:
+        return( x * factorielle( x - 1 ) )
+							</code>
+						</pre>
+					</p>
+				</section>
+
+				<section>
+
+					<p>
+						<h5>PEP8 (Python Extension Proposal)</h5>
+					</p>
+					<p class="fragment">
+					</p>
+						Un guide syntaxique communaitaire
+					<p class="fragment">
+						4 espaces pour indentation, 79 caractères par ligne
+					</p>
+					<p class="fragment">
+						Aucune tablulation
+					</p>
+					<p class="fragment">
+						Deux lignes entre les classes, une seule entre les méthodes
+					</p>
+				</section>
+				<section>
+
+				<p>
+					<h5>Un domaine d'utilisation large</h5>
+				</p>
+				<p class="fragment">
+					Résolution de problèmes complexes
+				</p>
+				<p class="fragment">
+					Creation de sites web (Django, Flask, Pyramid)
+				</p>
+				<p class="fragment">
+					Et bien d'autres choses...
+				</p>
+				</section>
+
+				<section>
+
+				<p>
+					<h5>Un langage interprété, oui mais...</h5>
+				</p>
+				<p class="fragment">
+				  Assez rapide <span class="fragment">quand on sait s'en servir</span>
+				</p>
+				<p class="fragment">
+					Rapide d'utilisation
+				</p>
+				<p class="fragment">
+					Facile à débugger
+				</p>
+				<p class="fragment">
+					Notamment à l'aide de traceback
+				</p>
 				</section>
 			</section>
 
