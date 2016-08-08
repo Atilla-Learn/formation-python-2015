@@ -4,7 +4,7 @@
 
 	<meta charset="utf-8">
 
-	<title>Atilla • Formation Python</title>
+	<title>Atilla • Ordinateurs Quantiques</title>
 
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -38,29 +38,32 @@
 		<div class="slides">
 			<section>
 				<h1>Atilla</h1>
-				<h3>Formation Python</h3>
+				<h3>Ordinateurs quantiques</h3>
 				<footer>
+					<!--
 					<div style="height: 100%; width: 100%; overflow: hidden;">
 						<img class="circular" src="assets/img/martin.jpg" style="float: left;"></img>
 						<img class="circular" src="assets/img/clement.jpg" style="float: right;"></img>
 					</div>
-					<small>Martin Pozuelo, Clément Villain</small><br>
-					<small>Jeudi 19 novembre 2015</small>
+				-->
+					<small>Martin Pozuelo</small><br>
+					<small>Lundi 1er Fevrier</small>
 				</footer>
 			</section>
 
 			<section>
 				<section>
-					<h1>Python, c'est quoi?</h1>
+					<h2>Pourquoi a-t-on besoin d'ordinateurs quantiques ?</h1>
 				</section>
 
 				<section>
 					<p>
-						<h5>Langage de programmation interprété multi-paradigme</h5>
+						<h5>Loi de Moore</h5>
 						<ul>
-						  <li class="fragment">Impératif</li>
-							<li class="fragment">Fontionnel</li>
-						  <li class="fragment">Orienté objet</li>
+						  <li class="fragment">Nombre de transistors des microprocesseurs double tous les deux ans</li>
+							<li class="fragment">Depuis 1959</li>
+						  <li class="fragment">15M de transistors en 2015</li>
+						  <li class="fragment">14 nm</li>
 						</ul>
 
 					</p>
@@ -68,553 +71,134 @@
 
 				<section>
 					<p>
-						Créé en 1990 par Guido van Rossum
-						Inspiré de ABC, de Modula-3, du C et des outils UNIX.
+						<h5>The Wall</h5>
+						<ul>
+						  <li class="fragment">Coût de fabrication exponentiel</li>
+							<li class="fragment">Impossible de descendre plus bas</li>
+						  <li class="fragment">Effets quantiques</li>
+						</ul>
+
 					</p>
 				</section>
-
-				<section>
-					<h5>Une grande communauté</h5>
-					<p class="fragment">
-						165k projets sur Github
-					</p>
-					<p class="fragment">
-						7.5% du nombre total de projets
-					</p>
-					<p class ="fragment">
-						5ème langage de programmation le plus utilisé
-					</p>
-				</section>
-				<section>
-					<p>
-						<h5>Un langage où tout est déjà programmé</h5>
-					</p>
-					<p class="fragment">
-						Une bibliothèque standard immense </br>
-					</q>&ldquo;Batteries included&ldquo;<q>
-						<pre class="fragment">
-							<code class="python">
-import os
-import sys
-import random
-import itertools
-import functools
-from math import cos, sqrt
-							</code>
-						</pre>
-					</p>
-				</section>
-
-				<section>
-					<p>
-						<h5>Un langage où tout est déjà programmé</h5>
-					</p>
-					<p class="fragment">
-						Si vous cherchez un module, il existe sans doute déjà parmi les 76000 sur PyPI
-						<pre class="fragment">
-							<code class="UNIX">
-sudo apt-get install python-pip
-pip install PackageName
-python3.4 -m pip install PackageName
-pip install Django 1.8.5
-pip install PdfEditor 0.0.3
-							</code>
-						</pre>
-					</p>
-				</section>
-
-				<section>
-					<p>
-						<h5>D'autres interpréteurs</h5>
-					</p>
-					<p class="fragment">
-						CPython est l'interpréteur que tout le monde utilise.
-					</p>
-					<p class="fragment">
-						Des implémentations supplémentaires: Jython, Cython, PyPy, etc..
-					</p>
-				</section>
-
-				<section>
-					<p>
-						<h5>Et pour ceux qui ont peur de tout casser</h5>
-						Ou ceux qui veulent pouvoir gérer des versions différentes entre projets
-					</p>
-					<p class="fragment">
-						Virtualenv est votre ami
-					</p>
-					<p class="fragment">
-						Virtualenv est un outil fait pour créer des environnements isolés
-					</p>
-					<p class="fragment">
-						<pre class="fragment">
-							<code class="UNIX">
-pip install virtualenv # Pour intaller virtualenv
-virtualenv env # Pour creer un environnement
-source env/bin/activate # Pour le lancer
-							</code>
-						</pre>
-					</p>
-				</section>
-
-				<section>
-					<p>
-						<h5>Python 2 ou Python 3 ?</h5>
-					</p>
-					<p class="fragment">
-						Python 3.
-					</p>
-					<p class="fragment">
-						Python 2 pour vieux projets et pour packages manquants sur Python 3
-					</p>
-					<p class="fragment">
-						Python 3 est restructuré et en UTF-8 par défaut
-					</p>
-					<p class="fragment">
-						Mais du coup il n'est pas rétrocompatible
-					</p>
-					<p class="fragment">
-						Apparition des générateurs un peu partout
-					</p>
-					<p class="fragment">
-						Pip est intégré
-					</p>
-				</section>
-
-
-
-
 			</section>
+
+
 
 			<section>
 				<section>
-					<h1>Pourquoi apprendre Python ?</h1>
-				</section>
-
-				<section>
-					<h5>La grille des salaires</h5>
-					<span>Salaire moyen au dessus de la moyenne globale de <b>+8,2%</b></span>
-					<img src="assets/img/salaire.png"></img>
+					<h2>Comment utiliser les effets quantiques ?</h1>
 				</section>
 
 				<section>
 					<p>
-						<h5>Langage lisible</h5>
-						<pre>
-							<code class="python">
-def factorielle(x):
-    if x < 2:
-        return 1
-    else:
-        return x * factorielle(x - 1)
-							</code>
-						</pre>
+						<h5>Les qubits</h5>
+						<ul>
+						  <span class="fragment">Bit...</span>
+							<span class="fragment"> mais quantique</span>
+						</ul>
+
 					</p>
 				</section>
 
-				<section>
 
+				<section>
 					<p>
-						<h5>PEP8 (Python Extension Proposal)</h5>
-					</p>
-					<p class="fragment">
-					</p>
-						Un guide syntaxique communautaire
-					<p class="fragment">
-						4 espaces pour indentation, 79 caractères par ligne
-					</p>
-					<p class="fragment">
-						Aucune tabulation
-					</p>
-					<p class="fragment">
-						Deux lignes entre les classes, une seule entre les méthodes
-					</p>
-				</section>
-				<section>
+						<h5>Comment ça quantique ?</h5>
+						<ul>
+							<li class="fragment">Superposition des états |0> et |1> </li>
+						  <li class="fragment">|Ψ> = α ⋅ |0> + β ⋅ |1></li>
+							<li class="fragment">La mesure de la valeur fixe la valeur</li>
+						  <li class="fragment">Avec les probabilités |α|² et |β|²</li>
+						</ul>
 
-				<p>
-					<h5>Un domaine d'utilisation large</h5>
-				</p>
-				<p class="fragment">
-					Creation de sites web (Django, Flask, Pyramid, Tornado)
-				</p>
-				<p class="fragment">
-					Outils de monitoring, de gestion de processus
-				</p>
-				<p class="fragment">
-					En recherche
-				</p>
-				<p class="fragment">
-					Petit scripts (ex: télécharger tous les fonds d'écran de Wallhaven)
-				</p>
+					</p>
 				</section>
 
 				<section>
-				<p>
-					<h5>Un langage interprété, oui mais...</h5>
-				</p>
-				<p class="fragment">
-				  Suffisament rapide pour la grande majorité de vos problèmes.
-				</p>
-				<p class="fragment">
-				En cas de soucis, utilisez de bons algorithmes et des structures de données adpatées.
-				</p>
-				<p class="fragment">
-					Rapide d'utilisation, rapide à prendre en main
-				</p>
-				<p class="fragment">
-					Facile à débugger
-				</p>
-				<p class="fragment">
-					Notamment à l'aide de la traceback
-				</p>
+					<p>
+						<div style="height: 50%; width: 50%; overflow: hidden;">
+							<img style="float: midle" src="assets/img/Qubit.png" />
+						</div>
+					</p>
+				</section>
+
+				<section>
+					<p>
+						<h5>Comment on utilise ça ?</h5>
+						<ul>
+							<li class="fragment">1 Qubit a 2 états |0> et |1></li>
+						  <li class="fragment">2 Qubits ont 4 états |00>, |01>, |10>, |11></li>
+							<li class="fragment">La mesure de la valeur fixe la valeur</li>
+						  <li class="fragment">La mesure de n élément fixe la valeur parmi 2^n états</li>
+						</ul>
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Pourquoi on utilise pas déjà ça ?</h1>
+				</section>
+
+				<section>
+					<ul>
+						<h5>Des avantages pourtant impressionnants</h5>
+						<li class="fragment">Parallelisme quantique impressionnant</li>
+						<li class="fragment">Exponentiellement plus efficace</li>
+						<li class="fragment">Plus petit que des transistors</li>
+					</ul>
+				</section>
+
+				<section>
+					<ul>
+						<h5>Une algorithmique différente</h5>
+						<li class="fragment">Lecture des valeurs</li>
+						<li class="fragment">Copie des valeurs</li>
+						<li class="fragment">Calculs</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<p>
+						Plus d'algorithmique "classique"
+					</p>
+					<p class="fragment">
+						Refaire tous les algorithmes connus...
+					</p>
+					<p class="fragment">
+						s'ils sont faisables !
+					</p>
 				</section>
 			</section>
 
 			<section>
 				<section>
-					<h1>Python, le coup de foudre</h1>
+					<h2>Quelques algorithmes existants</h2>
 				</section>
 
 				<section>
-					<h5>Manipuler une liste n'a jamais été aussi facile ! (1)</h5>
-					<pre>
-						<code class="python">
-asso_liste = ["Atilla", "BDE Stay High", "EISTI Poker"]
-
-asso_liste.append("Cap'EISTI")  # Ajoute à la fin de la liste
-asso_liste.remove("Atilla")  # Retire l'élément "Atilla"
-dernier = asso_liste.pop()  # Retire et renvoie le dernier
-
-if "BDE Stay High" in asso_liste:
-    indice = asso_liste.index("Atilla")  # indice = 0
-
-for asso in asso_liste:
-    print(asso)
-						</code>
-					</pre>
+					<h5>Algorithme de Deutsch Josza</h5>
+						<ul>
+							<li class="fragment">Pour vérifier si une fonction est équilibrée ou constante</li>
+							<li class="fragment">f : {0,1}^n -> {0,1}</li>
+							<li class="fragment">Ordinateur classique : 2^n-1</li>
+							<li class="fragment">Ordinateur quantique : 1</li>
+						</ul>
 				</section>
 
 				<section>
-					<h5>Manipuler une liste n'a jamais été aussi facile ! (2)</h5>
-					<pre>
-						<code class="python">
-asso_liste = ["Atilla", "BDE Stay High", "EISTI Poker"]
-
-if "Contr'Eisti" not in asso_liste:
-    print("Il manque des associations !")
-
-# Liste en compréhension
-minuscule = [asso.lower() for asso in asso_liste]
-filtre = [asso for asso in asso_liste if len(asso) <= 9]
-
-if asso_liste:  # La liste n'est pas vide
-    print("Il reste encore des associations à l'EISTI")
-
-for indice, asso in enumerate(reversed(asso_liste)):
-    print(indice, "/ ", asso)
-						</code>
-					</pre>
+					<h5>Algorithme de Shor</h5>
+						<ul>
+							<li class="fragment">Factorisation d'un entier en facteurs premiers</li>
+							<li class="fragment">Ordinateur classique : ??</li>
+							<li class="fragment">Ordinateur quantique : log(n)^3</li>
+						</ul>
 				</section>
 
-				<section>
-					<h5>Manipuler une liste n'a jamais été aussi facile ! (3)</h5>
-					<pre>
-						<code class="python">
-somme = sum(x ** 2 for x in range(1000))
-minimum = min([1, -5, 4, 3])
-
-asso_liste = ["Atilla", "BDE Stay High", "EISTI Poker"]
-dernier = asso_liste[-1]  # asso_liste[len(asso_liste) - 1], berk !
-
-# slicing: asso_liste[debut:fin:pas]
-dix_premiers = asso_liste[:10]
-dix_derniers = asso_liste[-10:]
-sans_les_dix_premiers = asso_liste[10:]
-asso_liste[3:7]  # Du 4ème au 7ème !
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<h5>Une belle fonction récursive</h5>
-					<span>Tu sens arriver la mémoïsation?</span>
-					<pre>
-						<code class="python">
-def fib(n):
-    """Suite de fibonacci, mais c'est super lent ! :("""
-    if n <= 1:
-        return 1
-    else:
-        return fib(n - 1) + fib(n - 2)
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<h5>Utilisons un décorateur !</h5>
-					<span>
-						Un décorateur est une fonction qui prend en paramètre une fonction
-						et qui renvoie une fonction
-					</span>
-					<pre>
-						<code class="python" style="max-height: None;">
-def decorateur(fonction):
-    # *args et **kwargs servent à définir un nombre indéterminé
-    # de paramètre positionnels et paramètre nommé
-    # f(arg_pos1, arg_pos2, kwarg1="lol", kwargs2=True)
-    def autre_fonction(*args, **kwargs):
-        print(args, kwargs)
-        return fonction(*args, **kwargs)
-    return autre_fonction
-
-@decorateur
-def add(x, y):
-    return x + y
-
-# Sucre syntaxique pour
-def add(x, y):
-    return x + y
-add = decorateur(add)
-
->>> add(2, 3)  # Affiche (2, 3) {} et retourne 5
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<h5>Ajoutez un cache à vos fonctions !</h5>
-					<pre>
-						<code class="python">
-import functools
-
-@functools.lru_cache(maxsize=None)
-def fib(n):
-    """Suite de fibonacci, super rapide !"""
-    if n <= 1:
-        return 1
-    else:
-        return fib(n - 1) + fib(n - 2)
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<h5>Vous n'avez jamais autant aimé chercher dans un dictionaire !</h5>
-					<span>Un dictionnaire, c'est comme un tableau sauf qu'au lieu des indices on a une clé !</span>
-					<pre>
-						<code class="python">
-dico = {}  # Dictionnaire vide
-
-dico["ma clé"] = 42
-print(dico["ma clé"])  # 42
-print("ma clé" in dico)  # True
-
-print(dico["autre clé"])  # Une exception est levée
-print(dico.get("autre clé") is None)  # True
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<h5>Vous n'avez jamais autant aimé chercher dans un dictionaire ! (2)</h5>
-					<ul>
-						<li>Très utile pour représenter une liste d'adjacence (graphe)</li>
-						<li>Ou tout simplement pour associer des valeurs à des objets</li>
-					</ul>
-					<pre>
-						<code class="python">
-personnes = ["H", "F", "H", "F", "F"]
-d = {}
-for personne in personnes:
-    if personne not in d:
-        d[personne] = 1
-    else:
-        d[personne] += 1
-
->>> d
-{'H': 2, 'F': 3}
-
->>> set(personnes)  # {'H', 'F'}
-# Cette ligne marche peu importe le nombre de genres et leur type !
-d = {genre: personnes.count(genre) for genre in set(personnes)}
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<h5>On dirait pas comme ça mais vous avez rencontré vos deux meilleurs amis !</h5>
-					<p>Je parle de la liste et du dictionnaire si vous ne suivez pas</p>
-				</section>
 			</section>
 
 			<section>
-				<section>
-					<h1>Python est amour !</h1>
-					<h1>Python est objets !</h1>
-				</section>
-
-				<section>
-					<h5>Les objets en Python, comment ça marche?</h5>
-					<ul>
-						<li class="fragment">Tout est objet ! (Même les fonctions, même les classes !)</li>
-						<li class="fragment">Tout est public ! Privé est une convention d'écriture</li>
-						<li class="fragment">Héritage multiple</li>
-						<li class="fragment">Interface et abstraction via le module ABC</li>
-						<li class="fragment">Duck typing</li>
-					</ul>
-					<blockquote class="fragment">
-						Si je vois un animal qui vole comme un canard, cancane comme un canard, et nage comme un canard, alors j'appelle cet oiseau un canard
-					</blockquote>
-				</section>
-
-				<section>
-					<h5>Déclarer une classe</h5>
-					<pre>
-						<code class="python">
-class Foo(object):  #  new-style class (versus Foo())
-    count = 0  # Attribut de classe
-    def __init__(self):  # Constructeur
-        self.x = 42  # Attribut d'instance
-        self.__class__.count += 1
-
-obj = Foo()
->>> obj.count  # 1
->>> obj.x  # 42
-obj2 = Foo()
->>> obj2.count  # 2
->>> obj.count == obj2.count  # True
-obj.y = 0  # On peut assigner de nouveaux attributs
->>> obj.inconnu  # Lève une exception
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<h5>Héritage</h5>
-					<span>On remonte le scope dans l'ordre des parents (__mro__)</span>
-					<pre>
-						<code class="python" style="max-height: None;">
-class Foo(object):
-    count = 0
-    def __init__(self):
-        self.x = 42
-        self.__class__.count += 1
-
-class Bar(Foo, object):
-    def add(self, x):
-        return self.x + x
-
-    def _methode_prive(self):
-        print("Regarde ailleurs !")
-
-f = Foo()
-b = Bar()
->>> b.count  # 2
->>> b.add(2)  # 44
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<h5>Surcharge d'opérateur</h5>
-					<pre>
-						<code class="python">
-import sys
-class Penis(object):
-
-    def __len__(self):
-        return sys.maxsize
-
-    def __gt__(self, x):
-        return True
-
-penis = Penis()
->>> len(penis)  # 9223372036854775807
->>> penis > 42  # True
->>> penis < 42  # Une exception est levée
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<h5>Où apprendre?</h5>
-					<ul>
-						<li>Programming in Python	de Sedgewick</li>
-						<li>Dive into Python</li>
-						<li>Lancez vous ! (Peut être pour le futur concours d'IA?)</li>
-					</ul>
-				</section>
-			</section>
-
-			<section>
-				<section>
-					<h1>Aller plus loin...</h1>
-				</section>
-
-				<section>
-					<h5>Notions avancés !</h5>
-					<ul>
-						<li class="fragment">Générateur</li>
-						<li class="fragment">Closure</li>
-						<li class="fragment">Le piège de l'argument par défaut</li>
-						<li class="fragment">Co-routine</li>
-						<li class="fragment">asyncio (Python 3.5)</li>
-						<li class="fragment">Meta classe</li>
-						<li class="fragment">Binding C</li>
-						<li class="fragment">Fonctionnement interne des structures de données</li>
-					</ul>
-				</section>
-
-				<section>
-					<h5>Une belle pile d'éxécution</h5>
-					<p>
-						<a href="assets/html/django_trace.htm">Ici</a>
-					</p>
-				</section>
-
-				<section>
-					<h5>Dijkstra en quelques lignes?</h5>
-					<pre>
-						<code class="python" style="max-height: None">
-def dijkstra(graph, begin):
-    """graph is a dict as an adjacent list.
-    graph[node] = [(weight, dest), ...]
-    """
-
-    heap = copy.deepcopy(graph[begin])
-    heapq.heapify(heap)
-    shortests = {begin: 0}
-
-    while heap:
-        w, d = heapq.heappop(heap)
-        if d not in shortests:
-            shortests[d] = w
-            for weight, dest in graph[d]:
-                heapq.heappush(heap, (shortests[d] + weight, dest))
-
-   return shortests
-						</code>
-					</pre>
-				</section>
-			</section>
-
-			<section>
-				<section>
-					<h1>C'est l'heure du gou.. du TP !</h1>
-				</section>
-
-				<section>
-					<h5>Exercice</h5>
-					<span>Écrire une classe PrimeManipulator dont l'instance peut:</span>
-					<div style="height: 32px"></div>
-					<ul>
-						<li>Déterminer si un nombre est premier</li>
-						<li>Déterminer la décomposition en facteur premier d'un nombre</li>
-						<li>Stocker les nombres premiers trouvés pour aller plus vite</li>
-						<li>Avoir pour ième élement le ième nombre premier</li>
-					</ul>
-				</section>
+				<h2>Merci</h2>
 			</section>
 		</div>
 	</div>
